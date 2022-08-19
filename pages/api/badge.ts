@@ -1,11 +1,15 @@
 import { supabase } from '../../utils/supabase';
+import { definitions } from '../../types/supabase';
 
 // userId와 badgeId를 받아서 특정 유저의 특정 뱃지 하나를 받아옴
 export const getBadge = async (userId: string, badgeId: string) => {
-  const result = await supabase.from('profile_badge_mappings').select().match({
-    profile_id: userId,
-    badge_id: badgeId,
-  });
+  const result = await supabase
+    .from<definitions['profile_badge_mappings']>('profile_badge_mappings')
+    .select()
+    .match({
+      profile_id: userId,
+      badge_id: badgeId,
+    });
 
   return result;
 };
@@ -13,7 +17,7 @@ export const getBadge = async (userId: string, badgeId: string) => {
 // userId를 받아서 특정 유저의 모든 뱃지를 받아옴
 export const getBadgesByUserId = async (userId: string) => {
   const result = await supabase
-    .from('profile_badge_mappings')
+    .from<definitions['profile_badge_mappings']>('profile_badge_mappings')
     .select()
     .match({
       profile_id: userId,
@@ -25,12 +29,14 @@ export const getBadgesByUserId = async (userId: string) => {
 
 // userId와 badgeId를 받아서 특정 유저에게 뱃지를 부여
 export const addBadgeToUser = async (userId: string, badgeId: string) => {
-  const result = await supabase.from('profile_badge_mappings').insert([
-    {
-      profile_id: userId,
-      badge_id: badgeId,
-    },
-  ]);
+  const result = await supabase
+    .from<definitions['profile_badge_mappings']>('profile_badge_mappings')
+    .insert([
+      {
+        profile_id: userId,
+        badge_id: badgeId,
+      },
+    ]);
 
   return result;
 };
@@ -47,7 +53,7 @@ export const updateBadgeCount = async (
   count: number,
 ) => {
   const result = await supabase
-    .from('profile_badge_mappings')
+    .from<definitions['profile_badge_mappings']>('profile_badge_mappings')
     .update([
       {
         count,
@@ -64,7 +70,7 @@ export const updateBadgeCount = async (
 // 유저가 특정 뱃지를 삭제할 수 있음
 export const deleteBadge = async (userId: string, badgeId: string) => {
   const result = await supabase
-    .from('profile_badge_mappings')
+    .from<definitions['profile_badge_mappings']>('profile_badge_mappings')
     .delete()
     .match({ profile_id: userId, badge_id: badgeId });
 
