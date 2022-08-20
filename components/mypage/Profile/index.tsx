@@ -3,6 +3,7 @@ import { BiEditAlt } from 'react-icons/bi';
 import Image from 'next/image';
 import { useState } from 'react';
 import Modal from '../Modal';
+import Link from 'next/link';
 
 interface ProfileProps {
   avatarUrl: string;
@@ -17,18 +18,25 @@ const Profile = ({ avatarUrl, name }: ProfileProps) => {
 
   return (
     <>
-      <Wrapper>
-        <div
-          style={{
-            marginRight: '10px',
-          }}
-        >
-          <Image
-            src={avatarUrl ? avatarUrl : '/images/user-default.png'}
-            alt="user profile"
-            width="60%"
-            height="60%"
-          />
+    <Wrapper>
+      <div
+        style={{
+          marginRight: '10px',
+        }}
+      >
+        <Image
+          src={avatarUrl ? avatarUrl : '/images/user-default.png'}
+          alt="user profile"
+          width="60%"
+          height="60%"
+        />
+      </div>
+      <Row>
+        <div>
+          <h3>{name}</h3>
+          <Link href="/mypage/edit/profile">
+            <BiEditAlt />
+          </Link>
         </div>
         <Row>
           <div>

@@ -29,17 +29,15 @@ const BadgeSettingModal = ({
     const result2 = await getBadgesByUserId(user!.id);
     setBadgeList(result2);
   };
-  const onClose = async () => {
-    handleClose();
-  };
   const onClick = () => {
     setLoading(true);
     onSave();
     setLoading(false);
     alert('저장되었습니다!');
+    handleClose();
   };
   return (
-    <CustomModal open={open} handleClose={onClose}>
+    <CustomModal open={open} handleClose={handleClose}>
       <Wrapper>
         <h2>대표 뱃지 설정</h2>
         <BadgeList cursor={true} />

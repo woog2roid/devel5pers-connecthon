@@ -9,10 +9,12 @@ import CustomHead from '../../components/common/CustomHead';
 import MainBadgeList from '../../components/mypage/MainBadgeList';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BadgeSettingModal from '../../components/mypage/BadgeSettingModal';
 import FeedList from '../../components/common/FeedList';
 import { useRouter } from 'next/router';
+import { getProfile } from '../../apis/profile';
+import { definitions } from '../../types/supabase';
 
 export const MyPage = () => {
   const router = useRouter();
@@ -20,15 +22,23 @@ export const MyPage = () => {
   const user = useRecoilValue(userState);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const [profile, setProfile] = useState<definitions['profiles']>();
+  useEffect(() => {
+    (async () => {
+      if (user !== null) setProfile((await getProfile(user.id))[0]);
+    })();
+  }, [user, setProfile]);
+
   return (
     <>
-      <CustomHead title="My Page | AimEco" />
+      <CustomHead title="마이페이지 | AimEco" />
       <Wrapper>
         <Box>
           <FiChevronLeft onClick={() => router.push('/')} />
           <Profile
             avatarUrl={user?.user_metadata.avatar_url}
-            name={user?.user_metadata.name}
+            name={profile?.name ?? ''}
           />
           <ProofStats />
         </Box>
@@ -47,7 +57,7 @@ export const MyPage = () => {
               대표뱃지 설정하기
             </p>
           </Heading>
-          <MainBadgeList />
+          <MainBadgeList scroll={true} />
         </div>
         <div>
           <Heading>
@@ -74,6 +84,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  margin-bottom: 3rem;
 `;
 
 const Box = styled.div`

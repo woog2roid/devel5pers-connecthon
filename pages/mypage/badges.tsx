@@ -15,7 +15,7 @@ const MyBadges = () => {
     <>
       <CustomHead title={'나의 뱃지들 | AimEco'} />
       <Wrapper>
-        <TopHeading title="나의 뱃지들" />
+        <TopHeading title="나의 뱃지들" to="/mypage" />
         <MainBadgeList />
         <div>
           <p onClick={handleOpen}>대표뱃지 설정하기</p>

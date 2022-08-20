@@ -2,11 +2,11 @@ import styled from '@emotion/styled';
 import { useRouter } from 'next/router';
 import { FiChevronLeft } from 'react-icons/fi';
 import { COLORS } from '../../styles/palette';
-const TopHeading = ({ title }: { title: string }) => {
+const TopHeading = ({ title, to }: { title: string; to: string }) => {
   const router = useRouter();
   return (
     <Heading>
-      <FiChevronLeft onClick={() => router.back()} />
+      <FiChevronLeft onClick={() => router.push(to)} />
       <h2>{title}</h2>
     </Heading>
   );
