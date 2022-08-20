@@ -11,10 +11,9 @@ import userState from '../../../store/user';
 import BadgeItem from '../BadgeItem';
 import { css } from '@emotion/css';
 
-
 interface propsType {
   size?: number;
-  scroll: boolean
+  scroll: boolean;
 }
 
 const MainBadgeList = ({ size, scroll }: propsType) => {
@@ -44,8 +43,6 @@ const MainBadgeList = ({ size, scroll }: propsType) => {
           <p>대표뱃지가 설정되지 않았습니다.</p>
         </BadgeWrapper>
       ) : (
-
-        <List>
         <ul className={scroll ? scrollStyle : notScrollStyle}>
           {mainBadgeList.map((badge: ProfileBadgeMappingWithBadge) => (
             <BadgeItem
