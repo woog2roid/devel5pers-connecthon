@@ -6,13 +6,13 @@ import { useRecoilValue } from 'recoil';
 import { Badge } from '@mui/material';
 import userState from '../../../store/user';
 import {
+    ProfileBadgeMappingWithBadge,
   setRepresentativeBadge,
   unsetRepresentativeBadge,
 } from '../../../apis/profile';
-import IBadge from '../../../types/badge';
 
 interface BadgeItemProps {
-  badge: IBadge;
+  badge: ProfileBadgeMappingWithBadge;
   cursor: boolean;
   main: boolean;
   size?: number;
@@ -51,7 +51,9 @@ const BadgeItem = ({ badge, cursor, main, size }: BadgeItemProps) => {
           height={size ?? 100}
         />
       </Badge>
-      <div className="title">{name}</div>
+      <div className="title" style={{
+        wordBreak: "break-word",
+      }}>{name}</div>
       <AiOutlineCheckCircle />
     </Wrapper>
   );

@@ -39,7 +39,7 @@ const BadgeSettingModal = ({
   return (
     <CustomModal open={open} handleClose={handleClose}>
       <Wrapper>
-        <h2>대표 뱃지 설정</h2>
+        <h2>대표 배지 설정</h2>
         <BadgeList cursor={true} />
         <Button
           variant="contained"
