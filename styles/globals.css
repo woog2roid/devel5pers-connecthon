@@ -39,6 +39,10 @@ input {
   font-family: NotoSans;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 @font-face {
   font-family: 'NotoSans';
   src: url('../public/fonts/NotoSansKR-Regular.otf') format('opentype');
