@@ -1,12 +1,9 @@
 import { supabase } from '../../utils/supabase';
 
 export const signInGoogle = async () => {
-  const userData = await supabase.auth.signIn({
+  return supabase.auth.signIn({
     provider: 'google',
   });
-
-  //{user, session, error}
-  return userData;
 };
 
 export const signOutGoogle = async () => {

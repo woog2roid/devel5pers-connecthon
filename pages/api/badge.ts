@@ -3,20 +3,18 @@ import { supabase } from '../../utils/supabase';
 
 // userId를 받아서 특정 유저의 모든 뱃지를 받아옴
 export const getBadgesByUserId = async (userId: string) => {
-  const result = await supabase
+  return supabase
     .from<definitions['profile_badge_mappings']>('profile_badge_mappings')
     .select()
     .match({
       profile_id: userId,
     })
     .order('created_at');
-
-  return result;
 };
 
 // userId와 badgeId를 받아서 특정 유저에게 뱃지를 부여
 export const addBadgeToUser = async (userId: string, badgeId: number) => {
-  const result = await supabase
+  return supabase
     .from<definitions['profile_badge_mappings']>('profile_badge_mappings')
     .insert([
       {
@@ -24,8 +22,6 @@ export const addBadgeToUser = async (userId: string, badgeId: number) => {
         badge_id: badgeId,
       },
     ]);
-
-  return result;
 };
 
 // 유저의 뱃지 보유 현황을 업데이트 할 수 있음
@@ -39,7 +35,7 @@ export const updateBadgeCount = async (
   badgeId: string,
   count: number,
 ) => {
-  const result = await supabase
+  return supabase
     .from<definitions['profile_badge_mappings']>('profile_badge_mappings')
     .update({
         count,
@@ -48,16 +44,12 @@ export const updateBadgeCount = async (
       profile_id: userId,
       badge_id: badgeId,
     });
-
-  return result;
 };
 
 // 유저가 특정 뱃지를 삭제할 수 있음
 export const deleteBadge = async (userId: string, badgeId: string) => {
-  const result = await supabase
+  return supabase
     .from<definitions['profile_badge_mappings']>('profile_badge_mappings')
     .delete()
     .match({ profile_id: userId, badge_id: badgeId });
-
-  return result;
 };
