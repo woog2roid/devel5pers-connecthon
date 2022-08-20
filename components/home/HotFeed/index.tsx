@@ -5,9 +5,11 @@ import { Wrapper } from './style';
 
 interface IProps {
   name: string;
+  images: string[];
+  url: string;
 }
 
-export default function HotFeed({ name }: IProps) {
+export default function HotFeed({ name, images, url }: IProps) {
   return (
     <div
       style={{
@@ -15,15 +17,18 @@ export default function HotFeed({ name }: IProps) {
         marginBottom: '1.3rem',
       }}
     >
-      <Wrapper>
-        <span style={{ fontSize: '14px' }}>{name}</span>
-        <Link href={`/new-feed-page?title=${name}`}>
-          <a>
-            <span style={{ color: 'gray', fontSize: '12px' }}>더보기</span>
-          </a>
-        </Link>
-      </Wrapper>
-      <FeedList />
+      <div style={{}}>
+        <Divider />
+        <Wrapper>
+          <span style={{ fontSize: '14px' }}>{name}</span>
+          <Link href={url}>
+            <a>
+              <span style={{ color: 'gray', fontSize: '12px' }}>더보기</span>
+            </a>
+          </Link>
+        </Wrapper>
+      </div>
+      <FeedList images={images} />
     </div>
   );
 }

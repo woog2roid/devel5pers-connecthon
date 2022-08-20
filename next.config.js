@@ -13,7 +13,11 @@ const nextConfig = {
       'betaimg-cdn.baemin.com',
       'skinnonews.com',
       'www.newsro.kr',
-      'lotteblog.s3.ap-northeast-2.amazonaws.com'
+      'lotteblog.s3.ap-northeast-2.amazonaws.com',
+      'blog.fantasticservices.com',
+      'blog.kakaocdn.net',
+      'cdn.discordapp.com',
+      'betaimg-cdn.baemin.com',
     ],
   },
 };
