@@ -54,16 +54,17 @@ export default function MenuBtn({ btn }: IProp) {
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
+                    paddingBottom: '2px'
                   }}
                 >
                   {btn.name === '뉴스' ? (
-                    <Newspaper sx={{ color: 'white' }} />
+                    <Newspaper sx={{ color: 'white', fontSize: 40 }} />
                   ) : btn.name === '도서관' ? (
-                    <MenuBook sx={{ color: 'white' }} />
+                    <MenuBook sx={{ color: 'white', fontSize: 40 }} />
                   ) : btn.name === '캠페인' ? (
-                    <Campaign sx={{ color: 'white' }} />
+                    <Campaign sx={{ color: 'white', fontSize: 40 }} />
                   ) : btn.name === '스토어' ? (
-                    <LocalMall sx={{ color: 'white' }} />
+                    <LocalMall sx={{ color: 'white', fontSize: 40 }} />
                   ) : (
                     <></>
                   )}
