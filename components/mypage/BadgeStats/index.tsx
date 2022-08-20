@@ -1,40 +1,41 @@
-import { useEffect, useState } from 'react';
-import { getUser } from '../../../apis/auth';
+import { useEffect } from 'react';
 import { getBadgesByUserId } from '../../../apis/profile';
-import IBadge from '../../../types/badge';
 import { Wrapper } from './style';
 import BadgeItem from '../BadgeItem';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { badgeListState } from '../../../store/badge';
+import userState from '../../../store/user';
+import { getUser } from '../../../apis/auth';
 
 const BadgeStats = () => {
-  const [badges, setBadges] = useState<IBadge[]>([]);
+  const [user, setUser] = useRecoilState(userState);
+  const [badges, setBadges] = useRecoilState(badgeListState);
 
   useEffect(() => {
+    if (badges !== null) return;
     const getBadges = async () => {
-      const user = await getUser();
       if (user !== null) {
-        const reuslt = await getBadgesByUserId(user?.id);
-        const refinedData = reuslt.map((data) => ({
-          id: data.badges.id,
-          iconUrl: data.badges.iconUrl ?? '',
-          name: data.badges.name ?? '',
-        }));
-        setBadges(refinedData);
+        const result = await getBadgesByUserId(user?.id);
+        setBadges(result);
+      } else {
+        const data = getUser();
+        setUser(data);
       }
     };
     getBadges();
-  }, []);
+  }, [user]);
 
   return (
     <Wrapper>
       <div>
         <p>⭐ 뱃지 개수</p>
-        <p className="large">{badges.length}개</p>
+        <p className="large">{badges === null ? null : `${badges.length}개`}</p>
       </div>
       <div>
         <p>🏆 최근 획득한 뱃지</p>
         <div>
-          {badges.length > 0 ? (
-            <BadgeItem badge={badges[0]} cursor={false} />
+          {badges === null ? null : badges.length > 0 ? (
+            <BadgeItem badge={badges[0]} cursor={false} main={false} />
           ) : (
             <></>
           )}

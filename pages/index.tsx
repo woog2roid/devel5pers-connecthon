@@ -7,6 +7,7 @@ import { getSession } from '../apis/auth';
 import { supabase } from '../utils/supabase';
 import Events from '../components/home/Events';
 import MenuBtnList from '../components/home/MenuBtnList';
+import HotFeed from '../components/home/HotFeed';
 
 const Home: NextPage = () => {
   const [session, setSession] = useRecoilState(sessionState);
@@ -25,6 +26,7 @@ const Home: NextPage = () => {
         <>
           <Events />
           <MenuBtnList />
+          <HotFeed name={'인기 환경 보호 챌린지'} />
         </>
       )}
     </>

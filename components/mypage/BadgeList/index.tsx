@@ -1,9 +1,12 @@
 import styled from '@emotion/styled';
+import { Skeleton } from '@mui/material';
 import { useEffect } from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
+import { getUser } from '../../../apis/auth';
 import { getBadgesByUserId } from '../../../apis/profile';
 import { badgeListState } from '../../../store/badge';
 import userState from '../../../store/user';
+import IBadge from '../../../types/badge';
 import BadgeItem from '../BadgeItem';
 
 interface BadgeListProps {
@@ -11,28 +14,39 @@ interface BadgeListProps {
 }
 
 const BadgeList = ({ cursor }: BadgeListProps) => {
-  const user = useRecoilValue(userState);
+  const [user, setUser] = useRecoilState(userState);
   const [badgeList, setBadgeList] = useRecoilState(badgeListState);
   useEffect(() => {
+    if (badgeList !== null) return;
     const getBadgeList = async () => {
       if (user !== null) {
         const result = await getBadgesByUserId(user.id);
         setBadgeList(result);
+        //console.log(result);
+      } else {
+        const data = getUser();
+        setUser(data);
       }
     };
     getBadgeList();
   }, [user]);
   return (
-    <List>
-      {badgeList.map((badge: any) => (
-        <BadgeItem
-          key={badge.badges.id}
-          badge={badge.badges}
-          cursor={cursor}
-          is_representative={badge.is_representative}
-        />
-      ))}
-    </List>
+    <>
+      {badgeList !== null ? (
+        <List>
+          {badgeList.map((badge: IBadge) => (
+            <BadgeItem
+              main={false}
+              badge={badge}
+              key={badge.badges.id}
+              cursor={cursor}
+            />
+          ))}
+        </List>
+      ) : (
+        <Skeleton variant="rounded" width={'100%'} height={'6rem'} />
+      )}
+    </>
   );
 };
 

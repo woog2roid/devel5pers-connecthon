@@ -1,10 +1,12 @@
 import { atom } from 'recoil';
-export const badgeListState = atom<any>({
+import { ProfileBadgeMappingWithBadge } from '../apis/profile';
+
+export const badgeListState = atom<ProfileBadgeMappingWithBadge[]>({
   key: 'badgeListState',
   default: [],
 });
 
-export const mainBadgeListState = atom<any>({
+export const mainBadgeListState = atom<ProfileBadgeMappingWithBadge[]>({
   key: 'mainBadgeListState',
-  default: null,
+  default: [],
 });

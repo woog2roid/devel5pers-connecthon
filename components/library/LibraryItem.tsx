@@ -7,7 +7,7 @@ interface LibraryItemProps {
 
 const LibraryItem = ({ src }: LibraryItemProps) => (
   <ItemWrapper>
-    <Image src={src} width="300" height="300" />
+    <Image src={src} alt="library thumbnail" width="300" height="300" />
   </ItemWrapper>
 );
 

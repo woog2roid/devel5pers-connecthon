@@ -2,24 +2,30 @@ import Image from 'next/image';
 import { Wrapper } from './style';
 import { useState } from 'react';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
-import styled from '@emotion/styled';
-import { COLORS } from '../../../styles/palette';
 import { useRecoilValue } from 'recoil';
+import { Badge } from '@mui/material';
 import userState from '../../../store/user';
 import {
   setRepresentativeBadge,
   unsetRepresentativeBadge,
 } from '../../../apis/profile';
+import IBadge from '../../../types/badge';
 
-const BadgeItem = ({ badge, cursor, is_representative }: any) => {
+interface BadgeItemProps {
+  badge: IBadge;
+  cursor: boolean;
+  main: boolean;
+}
+
+const BadgeItem = ({ badge, cursor, main }: BadgeItemProps) => {
   const user = useRecoilValue(userState);
-  const { iconUrl, name } = badge;
-  const [toggle, setToggle] = useState<boolean>(is_representative);
+  const { iconUrl, name, id } = badge.badges;
+  const [toggle, setToggle] = useState<boolean>(badge.is_representative);
   const onToggle = () => {
     if (toggle) {
-      unsetRepresentativeBadge(user!.id, badge.id);
+      unsetRepresentativeBadge(user!.id, id);
     } else {
-      setRepresentativeBadge(user!.id, badge.id);
+      setRepresentativeBadge(user!.id, id);
     }
     setToggle((toggle) => !toggle);
   };
@@ -30,17 +36,20 @@ const BadgeItem = ({ badge, cursor, is_representative }: any) => {
       onClick={onToggle}
       cursor={cursor}
       toggle={toggle}
+      main={main}
     >
-      <Image
-        src={iconUrl}
-        alt="Badge Image"
-        style={{
-          borderRadius: '50%',
-          display: 'block',
-        }}
-        width={100}
-        height={100}
-      />
+      <Badge badgeContent={badge.count} color="info">
+        <Image
+          src={iconUrl === undefined ? '' : iconUrl}
+          alt="Badge Image"
+          style={{
+            borderRadius: '50%',
+            display: 'block',
+          }}
+          width={100}
+          height={100}
+        />
+      </Badge>
       <div className="title">{name}</div>
       <AiOutlineCheckCircle />
     </Wrapper>

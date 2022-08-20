@@ -1,12 +1,25 @@
 import { Row, Wrapper } from './style';
 import { Newspaper, LocalMall, Campaign, MenuBook } from '@mui/icons-material';
+import { useRouter } from 'next/router';
 
 interface IProp {
   name: string;
 }
 
 export default function MenuBtn({ name }: IProp) {
-  const sx = {};
+  const router = useRouter();
+
+  const onClickNavButton = () => {
+    if (name === '뉴스') {
+      router.push('./news');
+    } else if (name === '도서관') {
+      router.push('./library');
+    } else if (name === '캠페인') {
+      router.push('./campaign');
+    } else if (name === '스토어') {
+      router.push('./store');
+    }
+  };
 
   return (
     <>
@@ -14,7 +27,7 @@ export default function MenuBtn({ name }: IProp) {
         <div
           style={{ display: 'flex', width: '100%', justifyContent: 'center' }}
         >
-          <Wrapper>
+          <Wrapper onClick={onClickNavButton}>
             <div
               style={{
                 width: '70px',
