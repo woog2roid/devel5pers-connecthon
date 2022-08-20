@@ -9,7 +9,7 @@ interface NewsType {
 
 const NewsList = () => {
   const getNews = async (): Promise<NewsType> => {
-    const data = (await axios.get('/api/getNews')).data;
+    const data = (await axios.get('/api/news')).data;
     console.log(data);
     return data;
   };
