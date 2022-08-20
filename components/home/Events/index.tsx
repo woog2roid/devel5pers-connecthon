@@ -25,6 +25,7 @@ export default function Events() {
         <SwiperSlide key={i}>
           <Image 
             src={item}
+            alt="carousel images"
             width="100%"
             height="80px"
             layout="responsive"
