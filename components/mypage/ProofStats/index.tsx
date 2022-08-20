@@ -1,6 +1,5 @@
 import { HeatMapGrid } from 'react-grid-heatmap';
 import styled from '@emotion/styled';
-import { useTheme } from '@emotion/react';
 
 const xLabels = new Array(30).fill(0).map((_, i) => `${i + 1}`);
 const yLabels = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];

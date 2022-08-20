@@ -1,58 +1,80 @@
+import { IMenuBtn } from '../../../types/menuBtn';
 import { Row, Wrapper } from './style';
+import Link from 'next/link';
+import { useState } from 'react';
+import styled from '@emotion/styled';
 import { Newspaper, LocalMall, Campaign, MenuBook } from '@mui/icons-material';
 import { useRouter } from 'next/router';
 
 interface IProp {
-  name: string;
+  btn: IMenuBtn;
 }
 
-export default function MenuBtn({ name }: IProp) {
-  const router = useRouter();
+const Dialog = styled.div`
+  display: flex;
+  width: 180px;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.5);
+`;
 
-  const onClickNavButton = () => {
-    if (name === '뉴스') {
-      router.push('./news');
-    } else if (name === '도서관') {
-      router.push('./library');
-    } else if (name === '캠페인') {
-      router.push('./campaign');
-    } else if (name === '스토어') {
-      router.push('./store');
-    }
+export default function MenuBtn({ btn }: IProp) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpen = () => {
+    setIsOpen(true);
   };
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+  const sx = {};
 
   return (
     <>
       <Row>
-        <div
-          style={{ display: 'flex', width: '100%', justifyContent: 'center' }}
-        >
-          <Wrapper onClick={onClickNavButton}>
+        <Link href={btn.link}>
+          <a>
             <div
               style={{
-                width: '70px',
-                height: '70px',
-                backgroundColor: '#7FB77E',
                 display: 'flex',
+                width: '100%',
                 justifyContent: 'center',
-                alignItems: 'center',
               }}
             >
-              {name === '뉴스' ? (
-                <Newspaper sx={{ color: 'white' }} />
-              ) : name === '도서관' ? (
-                <MenuBook sx={{ color: 'white' }} />
-              ) : name === '캠페인' ? (
-                <Campaign sx={{ color: 'white' }} />
-              ) : name === '스토어' ? (
-                <LocalMall sx={{ color: 'white' }} />
-              ) : (
-                <></>
-              )}
+              <Wrapper>
+                <div
+                  style={{
+                    width: '70px',
+                    height: '70px',
+                    backgroundColor: '#7FB77E',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                >
+                  {btn.name === '뉴스' ? (
+                    <Newspaper sx={{ color: 'white' }} />
+                  ) : btn.name === '도서관' ? (
+                    <MenuBook sx={{ color: 'white' }} />
+                  ) : btn.name === '캠페인' ? (
+                    <Campaign sx={{ color: 'white' }} />
+                  ) : btn.name === '스토어' ? (
+                    <LocalMall sx={{ color: 'white' }} />
+                  ) : (
+                    <></>
+                  )}
+                </div>
+              </Wrapper>
             </div>
-          </Wrapper>
-        </div>
-        <span style={{ fontFamily: 'NotoSans' }}>{name}</span>
+            <div style={{ fontFamily: 'NotoSans', textAlign: 'center' }}>
+              {btn.name}
+            </div>
+          </a>
+        </Link>
       </Row>
     </>
   );

@@ -37,4 +37,4 @@ const LibraryListWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   align-items: center;
-`
+`;
