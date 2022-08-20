@@ -1,5 +1,5 @@
 export default interface IBadge {
   id: number;
-  url: string;
+  iconUrl: string;
   name: string;
 }

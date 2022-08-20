@@ -1,41 +1,54 @@
-import styled from '@emotion/styled';
+import { useEffect, useState } from 'react';
+import { getUser } from '../../../apis/auth';
+import {
+  getBadgesByUserId,
+  getRepresentativeBadges,
+} from '../../../apis/profile';
+import IBadge from '../../../types/badge';
+import { Wrapper } from './style';
+import BadgeItem from '../BadgeItem';
 
 const BadgeStats = () => {
+  const [badges, setBadges] = useState<IBadge[]>([]);
+
+  useEffect(() => {
+    const getBadges = async () => {
+      const user = await getUser();
+      if (user !== null) {
+        const reuslt = await getBadgesByUserId(user?.id);
+        const refinedData = reuslt.map((data) => {
+          return data.badges;
+        });
+        console.log(refinedData);
+        setBadges(refinedData);
+      }
+    };
+
+    getBadges();
+  }, []);
+
   return (
     <Wrapper>
       <div>
         <p>⭐ 뱃지 개수</p>
-        <p className="large">35개</p>
+        <p className="large">{badges.length}개</p>
       </div>
       <div>
         <p>🏆 최근 획득한 뱃지</p>
-        <div></div>
+        <div>
+          {badges.length > 0 ? (
+            <BadgeItem
+              id={badges[0].id}
+              url={badges[0].iconUrl}
+              name={badges[0].name}
+            />
+          ) : (
+            <>/</>
+          )}
+        </div>
       </div>
     </Wrapper>
   );
 };
 
 export default BadgeStats;
-
-const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  border-radius: 1rem;
-  border: 1px solid lightgray;
-  box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.2);
-  & > div {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem 0;
-    p.large {
-      font-weight: bold;
-      font-size: 1.9rem;
-    }
-  }
-  & > div:last-child {
-    border-left: 1px solid lightgray;
-  }
-`;
