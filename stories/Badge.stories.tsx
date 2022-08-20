@@ -7,5 +7,9 @@ export default {
 } as ComponentMeta<typeof BadgeItem>;
 
 export const Primary: ComponentStory<typeof BadgeItem> = () => (
-  <BadgeItem id={1} url={'/images/newbie'} name={'첫 발걸음'} />
+  <BadgeItem
+    id={1}
+    url={'http://localhost:3000/images/badge/welcome.png'}
+    name={'첫 발걸음'}
+  />
 );
