@@ -1,10 +1,11 @@
 import { atom } from 'recoil';
-export const badgeListState = atom<any>({
+import IBadge from '../types/badge';
+export const badgeListState = atom<IBadge[] | null>({
   key: 'badgeListState',
-  default: [],
+  default: null,
 });
 
-export const mainBadgeListState = atom<any>({
+export const mainBadgeListState = atom<IBadge[] | null>({
   key: 'mainBadgeListState',
   default: null,
 });
