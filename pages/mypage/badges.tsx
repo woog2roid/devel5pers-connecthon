@@ -2,14 +2,25 @@ import styled from '@emotion/styled';
 import MainBadgeList from '../../components/mypage/MainBadgeList';
 import BadgeList from '../../components/mypage/BadgeList';
 import { COLORS } from '../../styles/palette';
+import { useState } from 'react';
+import BadgeSettingModal from '../../components/mypage/BadgeSettingModal';
+import CustomHead from '../../components/common/CustomHead';
 
 const MyBadges = () => {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   return (
-    <Wrapper>
-      <Heading>나의 뱃지들</Heading>
-      <MainBadgeList />
-      <BadgeList cursor={false} />
-    </Wrapper>
+    <>
+      <CustomHead title={'나의 뱃지들 | AimEco'} />
+      <Wrapper>
+        <Heading>나의 뱃지들</Heading>
+        <MainBadgeList />
+        <p onClick={handleOpen}>대표뱃지 설정하기</p>
+        <BadgeList cursor={false} />
+      </Wrapper>
+      <BadgeSettingModal open={open} handleClose={handleClose} />
+    </>
   );
 };
 
@@ -21,6 +32,13 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  p {
+    cursor: pointer;
+    text-align: right;
+    text-decoration: underline;
+    opacity: 0.6;
+    font-size: 0.8rem;
+  }
 `;
 
 const Heading = styled.h2`
