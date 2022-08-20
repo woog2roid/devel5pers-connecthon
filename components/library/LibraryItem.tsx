@@ -18,4 +18,5 @@ const ItemWrapper = styled.div`
   width: 300px;
   height: 300px;
   overflow: hidden;
+  margin: 5px;
 `
