@@ -57,7 +57,7 @@ export const MyPage = () => {
               대표뱃지 설정하기
             </p>
           </Heading>
-          <MainBadgeList />
+          <MainBadgeList scroll={true} />
         </div>
         <div>
           <Heading>

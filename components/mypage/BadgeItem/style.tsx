@@ -7,10 +7,11 @@ export const Wrapper = styled.div<{
   main: boolean;
 }>`
   position: relative;
-  width: calc(100px + 6px);
+  width: 8rem;
   text-align: center;
   padding: 0.5rem;
   border-radius: 1rem;
+  flex-shrink: 0;
   box-shadow: ${({ main }) => main && `1px 5px 10px rgba(0, 0, 0, 0.2)`};
 
   .title {
