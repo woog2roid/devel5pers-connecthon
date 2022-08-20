@@ -4,7 +4,16 @@ import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import userState from '../../../store/user';
 import { signOutGoogle } from '../../../apis/auth';
-import { Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Menu, MenuItem } from '@mui/material';
+import {
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Menu,
+  MenuItem,
+} from '@mui/material';
 import Link from 'next/link';
 import { AccountBoxOutlined, AccountCircle, Logout } from '@mui/icons-material';
 import React from 'react';
@@ -15,20 +24,21 @@ const UserMenu = () => {
   //recoil
   const user = useRecoilValue(userState);
 
-
   //onClick 구현
   const onClickLogout = () => {
     signOutGoogle();
     handleClose();
   };
 
-  const [anchorElement, setAnchorElement] = React.useState<null | HTMLElement>(null);
-  const open = Boolean(anchorElement)
+  const [anchorElement, setAnchorElement] = React.useState<null | HTMLElement>(
+    null,
+  );
+  const open = Boolean(anchorElement);
   const openMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElement(event.currentTarget)
+    setAnchorElement(event.currentTarget);
   };
   const handleClose = () => {
-    setAnchorElement(null)
+    setAnchorElement(null);
   };
 
   return (
@@ -55,7 +65,6 @@ const UserMenu = () => {
         open={open}
         onClose={handleClose}
         onClick={handleClose}
-        
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
