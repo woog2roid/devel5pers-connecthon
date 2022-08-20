@@ -9,7 +9,7 @@ const btns = [
 
 export default function MenuBtnList() {
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+    <div style={{ display: 'flex', flexWrap: 'wrap', margin: '2rem 0' }}>
       {btns.map((item, i) => {
         return <MenuBtn key={i} btn={item} />;
       })}
