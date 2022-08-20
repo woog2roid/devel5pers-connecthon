@@ -15,7 +15,7 @@ interface BadgeItemProps {
   badge: IBadge;
   cursor: boolean;
   main: boolean;
-  size: number | undefined;
+  size?: number;
 }
 
 const BadgeItem = ({ badge, cursor, main, size }: BadgeItemProps) => {
