@@ -1,27 +1,35 @@
 import styled from '@emotion/styled';
-import { useEffect } from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { getRepresentativeBadges } from '../../../apis/profile';
+import { Skeleton } from '@mui/material';
+import { useEffect, useState } from 'react';
+import { useRecoilState } from 'recoil';
+import { getUser } from '../../../apis/auth';
+import {
+  getRepresentativeBadges,
+  ProfileBadgeMappingWithBadge,
+} from '../../../apis/profile';
 import { mainBadgeListState } from '../../../store/badge';
 import userState from '../../../store/user';
-import IBadge from '../../../types/badge';
 import BadgeItem from '../BadgeItem';
 
 const MainBadgeList = () => {
-  const user = useRecoilValue(userState);
+  const [loading, setLoading] = useState(false);
+  const [user, setUser] = useRecoilState(userState);
   const [mainBadgeList, setMainBadgeList] = useRecoilState(mainBadgeListState);
   useEffect(() => {
-    if (mainBadgeList !== null) return;
     const getMainBadgeList = async () => {
+      setLoading(true);
       if (user !== null) {
         const result = await getRepresentativeBadges(user.id);
         setMainBadgeList(result);
-        console.log(result);
+      } else {
+        const data = getUser();
+        setUser(data);
       }
+      setLoading(false);
     };
     getMainBadgeList();
-  }, [user]);
-  return mainBadgeList !== null ? (
+  }, [user, setMainBadgeList]);
+  return !loading ? (
     <>
       {mainBadgeList.length === 0 ? (
         <BadgeWrapper>
@@ -29,19 +37,20 @@ const MainBadgeList = () => {
         </BadgeWrapper>
       ) : (
         <List>
-          {mainBadgeList.map((badge: IBadge) => (
+          {mainBadgeList.map((badge: ProfileBadgeMappingWithBadge) => (
             <BadgeItem
               main={true}
-              badge={badge.badges}
+              badge={badge}
               key={badge.badges.id}
               cursor={false}
-              is_representative={false}
             />
           ))}
         </List>
       )}
     </>
-  ) : null;
+  ) : (
+    <Skeleton variant="rounded" width={'100%'} height={'6rem'} />
+  );
 };
 
 export default MainBadgeList;

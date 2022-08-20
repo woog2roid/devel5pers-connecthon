@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
     display: flex;
@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 `;
 
 export const FeedOfImages = styled.div`
-    display: flex;
-    align-items: center;
-    overflow: scroll;
+  display: flex;
+  align-items: center;
+  overflow: scroll;
 `;
