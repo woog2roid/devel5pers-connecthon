@@ -1,4 +1,4 @@
-import BadgeItem from '../components/badge/BadgeItem';
+import BadgeItem from '../components/mypage/BadgeItem';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
