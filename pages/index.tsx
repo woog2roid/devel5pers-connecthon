@@ -1,23 +1,27 @@
 import type { NextPage } from 'next';
 import { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import LoginForm from '../components/home/login/LoginForm';
 import sessionState from '../store/session';
-import { getSession } from '../apis/auth';
+import { getSession, getUser } from '../apis/auth';
 import { supabase } from '../utils/supabase';
 import Events from '../components/home/Events';
 import MenuBtnList from '../components/home/MenuBtnList';
 import TopBar from '../components/common/TopBar';
 import HotFeed from '../components/home/HotFeed';
 import CustomHead from '../components/common/CustomHead';
+import userState from '../store/user';
 
 const Home: NextPage = () => {
   const [session, setSession] = useRecoilState(sessionState);
+  const setUser = useSetRecoilState(userState);
   useEffect(() => {
     const data = getSession();
     setSession(data);
+    setUser(getUser());
     supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
+      setUser(getUser());
     });
   }, [setSession]);
   return (
