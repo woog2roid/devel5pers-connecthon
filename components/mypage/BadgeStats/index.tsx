@@ -27,11 +27,11 @@ const BadgeStats = () => {
   return (
     <Wrapper>
       <div>
-        <p>⭐ 뱃지 개수</p>
+        <p>⭐ 배지 개수</p>
         <p className="large">{loading ? null : `${badges.length}개`}</p>
       </div>
       <div>
-        <p>🏆 최근 획득한 뱃지</p>
+        <p>🏆 최근 획득한 배지</p>
         <div>
           {loading ? null : badges.length > 0 ? (
             <BadgeItem badge={badges[0]} cursor={false} main={false} />

@@ -27,7 +27,7 @@ const Home: NextPage = () => {
   }, [setSession]);
   return (
     <>
-      <CustomHead title={'Welcome to AiMEco :)'} />
+      <CustomHead title={'Welcome to AimEco :)'} />
       {!session ? (
         <LoginForm />
       ) : (

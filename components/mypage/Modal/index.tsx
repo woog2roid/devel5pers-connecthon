@@ -18,7 +18,7 @@ const ModalComponent = ({ open, handleClose, avatarUrl }: propsType) => {
   const badges = useRecoilValue(badgeListState);
 
   //const chipLabel = `총 뱃지 수: ${badges?.length}개`;
-  const chipLabel = `대표 뱃지`;
+  const chipLabel = `대표 배지`;
   return (
     <CustomModal open={open} handleClose={handleClose}>
       <Box sx={modalStyle}>
