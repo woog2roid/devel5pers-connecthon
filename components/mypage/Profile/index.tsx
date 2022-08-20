@@ -18,26 +18,20 @@ const Profile = ({ avatarUrl, name }: ProfileProps) => {
 
   return (
     <>
-    <Wrapper>
-      <div
-        style={{
-          marginRight: '10px',
-        }}
-      >
-        <Image
-          src={avatarUrl ? avatarUrl : '/images/user-default.png'}
-          alt="user profile"
-          width="60%"
-          height="60%"
-        />
-      </div>
-      <Row>
-        <div>
-          <h3>{name}</h3>
-          <Link href="/mypage/edit/profile">
-            <BiEditAlt />
-          </Link>
+      <Wrapper>
+        <div
+          style={{
+            marginRight: '10px',
+          }}
+        >
+          <Image
+            src={avatarUrl ? avatarUrl : '/images/user-default.png'}
+            alt="user profile"
+            width="60%"
+            height="60%"
+          />
         </div>
+        <div></div>
         <Row>
           <div>
             <h3>{name}</h3>
@@ -49,7 +43,9 @@ const Profile = ({ avatarUrl, name }: ProfileProps) => {
                 height="18px"
                 onClick={handleOpen}
               />
-              <BiEditAlt />
+              <Link href="/mypage/edit/profile">
+                <BiEditAlt />
+              </Link>
             </span>
           </div>
           <p>팔로워 0 팔로잉 0</p>
