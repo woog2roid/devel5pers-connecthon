@@ -1,14 +1,13 @@
 import { HeatMapGrid } from 'react-grid-heatmap';
 import styled from '@emotion/styled';
+import { COLORS } from '../../../styles/palette';
 
 const xLabels = new Array(30).fill(0).map((_, i) => `${i + 1}`);
 const yLabels = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 const data = new Array(yLabels.length)
   .fill(0)
   .map(() =>
-    new Array(xLabels.length)
-      .fill(0)
-      .map(() => Math.floor(Math.random() * 100)),
+    new Array(xLabels.length).fill(0).map(() => Math.floor(Math.random() * 2)),
   );
 
 const ProofStats = () => {
@@ -28,8 +27,7 @@ const ProofStats = () => {
           color: '#777',
         })}
         cellStyle={(_x, _y, ratio) => ({
-          background: `rgb(12, 160, 44, ${ratio})`,
-          color: `rgb(0, 0, 0, ${ratio / 2 + 0.4})`,
+          background: ratio ? COLORS.green : COLORS.lightGreen,
         })}
         cellHeight="1.1rem"
         xLabelsPos="bottom"
