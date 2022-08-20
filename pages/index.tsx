@@ -9,6 +9,7 @@ import Events from '../components/home/Events';
 import MenuBtnList from '../components/home/MenuBtnList';
 import TopBar from '../components/common/TopBar';
 import HotFeed from '../components/home/HotFeed';
+import CustomHead from '../components/common/CustomHead';
 
 const Home: NextPage = () => {
   const [session, setSession] = useRecoilState(sessionState);
@@ -21,6 +22,7 @@ const Home: NextPage = () => {
   }, [setSession]);
   return (
     <>
+      <CustomHead title={'Welcome to AiMEco :)'} />
       {!session ? (
         <LoginForm />
       ) : (
@@ -28,7 +30,8 @@ const Home: NextPage = () => {
           <TopBar />
           <Events />
           <MenuBtnList />
-          <HotFeed name={'인기 환경 보호 챌린지'} />
+          <HotFeed name={'🔥 인기 피드'} />
+          <HotFeed name={'🌍 인기 환경 보호 챌린지'} />
         </>
       )}
     </>
