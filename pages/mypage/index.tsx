@@ -22,7 +22,7 @@ export const MyPage = () => {
   const handleClose = () => setOpen(false);
   return (
     <>
-      <CustomHead title="My Page | AimEco" />
+      <CustomHead title="마이페이지 | AimEco" />
       <Wrapper>
         <Box>
           <FiChevronLeft onClick={() => router.push('/')} />
@@ -74,6 +74,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  margin-bottom: 3rem;
 `;
 
 const Box = styled.div`
