@@ -11,6 +11,7 @@ import TopBar from '../components/common/TopBar';
 import HotFeed from '../components/home/HotFeed';
 import CustomHead from '../components/common/CustomHead';
 import userState from '../store/user';
+import { campaignImages, userImages } from '../data/feedImages';
 
 const Home: NextPage = () => {
   const [session, setSession] = useRecoilState(sessionState);
@@ -34,8 +35,8 @@ const Home: NextPage = () => {
           <TopBar />
           <Events />
           <MenuBtnList />
-          <HotFeed name={'🔥 인기 피드'} />
-          <HotFeed name={'🌍 인기 환경 보호 챌린지'} />
+          <HotFeed name={'🔥 인기 피드'} images={userImages} url={'/new-feed-page'} />
+          <HotFeed name={'인기 환경 보호 챌린지'} images={campaignImages} url={'/'} />
         </>
       )}
     </>
