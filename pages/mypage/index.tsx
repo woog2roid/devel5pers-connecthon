@@ -11,6 +11,7 @@ import { FiChevronRight } from 'react-icons/fi';
 import Link from 'next/link';
 import { useState } from 'react';
 import BadgeSettingModal from '../../components/mypage/BadgeSettingModal';
+import FeedList from '../../components/common/FeedList';
 
 export const MyPage = () => {
   const [open, setOpen] = useState(false);
@@ -56,6 +57,7 @@ export const MyPage = () => {
               </Link>
             </div>
           </Heading>
+          <FeedList />
         </div>
       </Wrapper>
       <BadgeSettingModal open={open} handleClose={handleClose} />
