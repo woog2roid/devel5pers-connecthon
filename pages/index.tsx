@@ -9,7 +9,7 @@ const Home: NextPage = () => {
   const [session, setSession] = useRecoilState(sessionState);
   useEffect(() => {
     setSession(getSession());
-  }, []);
+  }, [setSession]);
   return <>{!session ? <LoginForm /> : 'Hello, World!'}</>;
 };
 

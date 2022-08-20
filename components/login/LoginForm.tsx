@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Button } from '@mui/material';
-import { signInGoogle } from '../../pages/api/auth';
+import { signInGoogle } from '../../apis/auth';
 import FormInput from './FormInput';
 import { FaSeedling } from 'react-icons/fa';
 import { COLORS } from '../../styles/palette';
