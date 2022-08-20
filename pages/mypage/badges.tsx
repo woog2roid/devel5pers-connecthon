@@ -13,12 +13,12 @@ const MyBadges = () => {
   const handleClose = () => setOpen(false);
   return (
     <>
-      <CustomHead title={'나의 뱃지들 | AimEco'} />
+      <CustomHead title="나의 배지들 | AimEco" />
       <Wrapper>
-        <TopHeading title="나의 뱃지들" to="/mypage" />
+        <TopHeading title="나의 배지들" to="/mypage" />
         <MainBadgeList />
         <div>
-          <p onClick={handleOpen}>대표뱃지 설정하기</p>
+          <p onClick={handleOpen}>대표배지 설정하기</p>
           <BadgeList cursor={false} />
         </div>
       </Wrapper>

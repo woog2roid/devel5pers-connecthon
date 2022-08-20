@@ -47,7 +47,7 @@ export const MyPage = () => {
         <div>
           <Heading>
             <div>
-              <h3>뱃지</h3>
+              <h3>배지</h3>
               <Link href="/mypage/badges">
                 <a>
                   <FiChevronRight />
@@ -55,7 +55,7 @@ export const MyPage = () => {
               </Link>
             </div>
             <p className="setting" onClick={handleOpen}>
-              대표뱃지 설정하기
+              대표배지 설정하기
             </p>
           </Heading>
           <MainBadgeList scroll={true} />
