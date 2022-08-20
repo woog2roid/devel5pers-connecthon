@@ -15,6 +15,7 @@ import FeedList from '../../components/common/FeedList';
 import { useRouter } from 'next/router';
 import { getProfile } from '../../apis/profile';
 import { definitions } from '../../types/supabase';
+import { userImages } from '../../data/feedImages';
 
 export const MyPage = () => {
   const router = useRouter();
@@ -70,7 +71,7 @@ export const MyPage = () => {
               </Link>
             </div>
           </Heading>
-          <FeedList />
+          <FeedList images={userImages} />
         </div>
       </Wrapper>
       <BadgeSettingModal open={open} handleClose={handleClose} />
