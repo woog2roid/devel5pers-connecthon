@@ -11,7 +11,7 @@ export default function MenuBtn({ name } :IProp) {
                 <div style={{display: "flex", width: "100%", justifyContent: "center"}}>
                     <Wrapper><div style={{width: "70px", height: "70px", backgroundColor: "#7FB77E"}} /></Wrapper>
                 </div>
-                {name}
+                <span style={{fontFamily: "NotoSans"}}>{name}</span>
             </Row>
         </>
     );

@@ -1,11 +1,11 @@
 import type { NextPage } from 'next';
 import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
-import LoginForm from '../components/login/LoginForm';
+import LoginForm from '../components/home/login/LoginForm';
 import sessionState from '../store/session';
 import { getSession } from '../apis/auth';
 import { supabase } from '../utils/supabase';
-import Events from '../components/Events';
+import Events from '../components/home/Events';
 import MenuBtnList from '../components/MenuBtnList';
 
 const Home: NextPage = () => {

@@ -1,4 +1,4 @@
-import MenuBtn from "../MenuBtn";
+import MenuBtn from "../home/MenuBtn";
 
 export default function MenuBtnList() {
     const btnNames = [

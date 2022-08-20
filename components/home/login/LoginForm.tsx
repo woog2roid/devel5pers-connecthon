@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 import { Button } from '@mui/material';
-import { signInGoogle } from '../../apis/auth';
+import { signInGoogle } from '../../../apis/auth';
 import FormInput from './FormInput';
 import { FaSeedling } from 'react-icons/fa';
-import { COLORS } from '../../styles/palette';
+import { COLORS } from '../../../styles/palette';
 
 const LoginForm = () => {
   return (
