@@ -9,8 +9,9 @@ import {
 import { mainBadgeListState } from '../../../store/badge';
 import userState from '../../../store/user';
 import BadgeItem from '../BadgeItem';
+import { css } from '@emotion/css';
 
-const MainBadgeList = () => {
+const MainBadgeList = ({ scroll }: { scroll: boolean }) => {
   const [loading, setLoading] = useState(false);
   const user = useRecoilValue(userState);
   const [mainBadgeList, setMainBadgeList] = useRecoilState(mainBadgeListState);
@@ -32,7 +33,7 @@ const MainBadgeList = () => {
           <p>대표뱃지가 설정되지 않았습니다.</p>
         </BadgeWrapper>
       ) : (
-        <List>
+        <ul className={scroll ? scrollStyle : notScrollStyle}>
           {mainBadgeList.map((badge: ProfileBadgeMappingWithBadge) => (
             <BadgeItem
               main={true}
@@ -41,7 +42,7 @@ const MainBadgeList = () => {
               cursor={false}
             />
           ))}
-        </List>
+        </ul>
       )}
     </>
   ) : (
@@ -50,6 +51,10 @@ const MainBadgeList = () => {
 };
 
 export default MainBadgeList;
+
+MainBadgeList.defaultProps = {
+  scroll: false,
+};
 
 const BadgeWrapper = styled.div`
   min-height: 6rem;
@@ -60,10 +65,19 @@ const BadgeWrapper = styled.div`
   opacity: 0.5;
 `;
 
-const List = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(106px, 106px));
-  gap: 2rem;
-  justify-content: center;
+const scrollStyle = css`
+  display: flex;
+  gap: 1.5rem;
   width: 100%;
+  overflow-x: scroll;
+  padding: 1rem 0.5rem;
+`;
+
+const notScrollStyle = css`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 330px;
+  margin: 0 auto;
 `;
