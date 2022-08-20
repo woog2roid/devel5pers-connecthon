@@ -24,3 +24,13 @@ export const unsetRepresentativeBadge = async (userId: string, badgeId: number) 
       badge_id: badgeId,
     });
 }
+
+export const getRepresentativeBadges = async (userId: string) => {
+  return supabase
+    .from<definitions['profile_badge_mappings']>('profile_badge_mappings')
+    .select()
+    .match({
+      profile_id: userId,
+      is_representative: true,
+    });
+}
