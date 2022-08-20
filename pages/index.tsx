@@ -10,13 +10,11 @@ import MenuBtnList from '../components/home/MenuBtnList';
 import HotFeed from '../components/home/HotFeed';
 
 const Home: NextPage = () => {
-
   const [session, setSession] = useRecoilState(sessionState);
   useEffect(() => {
     const data = getSession();
     setSession(data);
     supabase.auth.onAuthStateChange((_event, session) => {
-      console.log(_event);
       setSession(session);
     });
   }, [setSession]);
@@ -33,6 +31,6 @@ const Home: NextPage = () => {
       }
     </>
   );
-}
+};
 
 export default Home;

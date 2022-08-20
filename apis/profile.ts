@@ -41,8 +41,17 @@ export const getRepresentativeBadges = async (userId: string) =>
   handleSupabaseError(
     async (userId: string) =>
       supabase
-        .from<definitions['profile_badge_mappings']>('profile_badge_mappings')
-        .select()
+        .from<
+          definitions['profile_badge_mappings'] & {
+            badges: definitions['badges'];
+          }
+        >('profile_badge_mappings')
+        .select(
+          `
+          *,
+          badges (*)
+          `,
+        )
         .match({
           profile_id: userId,
           is_representative: true,
@@ -55,17 +64,21 @@ export const getBadgesByUserId = async (userId: string) =>
   handleSupabaseError(
     async (userId: string) =>
       supabase
-        .from<definitions['profile_badge_mappings']>('profile_badge_mappings')
+        .from<
+          definitions['profile_badge_mappings'] & {
+            badges: definitions['badges'];
+          }
+        >('profile_badge_mappings')
         .select(
           `
-      *,
-      badges (*)
-    `,
+          *,
+          badges (*)
+          `,
         )
         .match({
           profile_id: userId,
         })
-        .order('created_at'),
+        .order('created_at', { ascending: false }),
     userId,
   );
 
