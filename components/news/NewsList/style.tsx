@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const Row = styled.div`
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2);

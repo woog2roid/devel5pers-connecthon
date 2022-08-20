@@ -2,9 +2,10 @@ import { definitions } from '../types/supabase';
 import { supabase } from '../utils/supabase';
 import handleSupabaseError from './handleSupabaseError';
 
-export type ProfileBadgeMappingWithBadge = definitions['profile_badge_mappings'] & {
-  badges: definitions['badges'];
-}
+export type ProfileBadgeMappingWithBadge =
+  definitions['profile_badge_mappings'] & {
+    badges: definitions['badges'];
+  };
 
 export const setRepresentativeBadge = async (userId: string, badgeId: number) =>
   handleSupabaseError(
