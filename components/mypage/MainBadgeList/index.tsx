@@ -3,10 +3,9 @@ import { Skeleton } from '@mui/material';
 import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { getUser } from '../../../apis/auth';
-import { getRepresentativeBadges } from '../../../apis/profile';
+import { getRepresentativeBadges, ProfileBadgeMappingWithBadge } from '../../../apis/profile';
 import { mainBadgeListState } from '../../../store/badge';
 import userState from '../../../store/user';
-import IBadge from '../../../types/badge';
 import BadgeItem from '../BadgeItem';
 
 const MainBadgeList = () => {
@@ -18,14 +17,13 @@ const MainBadgeList = () => {
       if (user !== null) {
         const result = await getRepresentativeBadges(user.id);
         setMainBadgeList(result);
-        //console.log(result);
       } else {
         const data = getUser();
         setUser(data);
       }
     };
     getMainBadgeList();
-  }, [user]);
+  }, [user, mainBadgeList, setMainBadgeList]);
   return mainBadgeList !== null ? (
     <>
       {mainBadgeList.length === 0 ? (
@@ -34,7 +32,7 @@ const MainBadgeList = () => {
         </BadgeWrapper>
       ) : (
         <List>
-          {mainBadgeList.map((badge: IBadge) => (
+          {mainBadgeList.map((badge: ProfileBadgeMappingWithBadge) => (
             <BadgeItem
               main={true}
               badge={badge}

@@ -2,6 +2,10 @@ import { definitions } from '../types/supabase';
 import { supabase } from '../utils/supabase';
 import handleSupabaseError from './handleSupabaseError';
 
+export type ProfileBadgeMappingWithBadge = definitions['profile_badge_mappings'] & {
+  badges: definitions['badges'];
+}
+
 export const setRepresentativeBadge = async (userId: string, badgeId: number) =>
   handleSupabaseError(
     async (userId: string, badgeId: number) =>
@@ -41,11 +45,7 @@ export const getRepresentativeBadges = async (userId: string) =>
   handleSupabaseError(
     async (userId: string) =>
       supabase
-        .from<
-          definitions['profile_badge_mappings'] & {
-            badges: definitions['badges'];
-          }
-        >('profile_badge_mappings')
+        .from<ProfileBadgeMappingWithBadge>('profile_badge_mappings')
         .select(
           `
           *,
@@ -64,11 +64,7 @@ export const getBadgesByUserId = async (userId: string) =>
   handleSupabaseError(
     async (userId: string) =>
       supabase
-        .from<
-          definitions['profile_badge_mappings'] & {
-            badges: definitions['badges'];
-          }
-        >('profile_badge_mappings')
+        .from<ProfileBadgeMappingWithBadge>('profile_badge_mappings')
         .select(
           `
           *,
