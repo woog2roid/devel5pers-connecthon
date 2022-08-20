@@ -26,7 +26,6 @@
     "react-dom": "18.2.0",
     "react-grid-heatmap": "^1.2.0",
     "react-icons": "^4.4.0",
-    "react-material-ui-carousel": "v2",
     "recoil": "^0.7.5",
     "swiper": "^8.3.2"
   },
