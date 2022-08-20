@@ -122,6 +122,7 @@ export interface paths {
           profile_id?: parameters["rowFilter.profile_badge_mappings.profile_id"];
           badge_id?: parameters["rowFilter.profile_badge_mappings.badge_id"];
           count?: parameters["rowFilter.profile_badge_mappings.count"];
+          is_representative?: parameters["rowFilter.profile_badge_mappings.is_representative"];
           /** Filtering Columns */
           select?: parameters["select"];
           /** Ordering */
@@ -176,6 +177,7 @@ export interface paths {
           profile_id?: parameters["rowFilter.profile_badge_mappings.profile_id"];
           badge_id?: parameters["rowFilter.profile_badge_mappings.badge_id"];
           count?: parameters["rowFilter.profile_badge_mappings.count"];
+          is_representative?: parameters["rowFilter.profile_badge_mappings.is_representative"];
         };
         header: {
           /** Preference */
@@ -194,6 +196,7 @@ export interface paths {
           profile_id?: parameters["rowFilter.profile_badge_mappings.profile_id"];
           badge_id?: parameters["rowFilter.profile_badge_mappings.badge_id"];
           count?: parameters["rowFilter.profile_badge_mappings.count"];
+          is_representative?: parameters["rowFilter.profile_badge_mappings.is_representative"];
         };
         body: {
           /** profile_badge_mappings */
@@ -425,7 +428,10 @@ export interface definitions {
      * @default 0
      */
     level: number;
-    /** Format: text */
+    /**
+     * Format: text
+     * @default NewBie
+     */
     name: string;
     /** Format: text */
     profile_image?: string;
@@ -454,6 +460,11 @@ export interface definitions {
     badge_id: number;
     /** Format: bigint */
     count: number;
+    /**
+     * Format: boolean
+     * @default false
+     */
+    is_representative: boolean;
   };
   posts: {
     /**
@@ -554,6 +565,8 @@ export interface parameters {
   "rowFilter.profile_badge_mappings.badge_id": string;
   /** Format: bigint */
   "rowFilter.profile_badge_mappings.count": string;
+  /** Format: boolean */
+  "rowFilter.profile_badge_mappings.is_representative": string;
   /** @description posts */
   "body.posts": definitions["posts"];
   /** Format: bigint */
