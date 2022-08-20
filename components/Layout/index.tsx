@@ -8,7 +8,7 @@ const Layout = ({ children }: React.PropsWithChildren) => {
 export default Layout;
 
 const Wrapper = styled.div`
-  max-width: 360px;
+  max-width: 400px;
   width: 90vw;
   margin: 0 auto;
 `;
