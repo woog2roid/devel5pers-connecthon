@@ -1264,7 +1264,7 @@
 
 "@emotion/react@^11.10.0":
   version "11.10.0"
-  resolved "https://registry.npmjs.org/@emotion/react/-/react-11.10.0.tgz"
+  resolved "https://registry.yarnpkg.com/@emotion/react/-/react-11.10.0.tgz#53c577f063f26493f68a05188fb87528d912ff2e"
   integrity sha512-K6z9zlHxxBXwN8TcpwBKcEsBsOw4JWCCmR+BeeOWgqp8GIU1yA2Odd41bwdAAr0ssbQrbJbVnndvv7oiv1bZeQ==
   dependencies:
     "@babel/runtime" "^7.18.3"
@@ -1293,7 +1293,7 @@
 
 "@emotion/styled@^11.10.0":
   version "11.10.0"
-  resolved "https://registry.npmjs.org/@emotion/styled/-/styled-11.10.0.tgz"
+  resolved "https://registry.yarnpkg.com/@emotion/styled/-/styled-11.10.0.tgz#c19484dab4206ae46727c07efb4316423dd21312"
   integrity sha512-V9oaEH6V4KePeQpgUE83i8ht+4Ri3E8Djp/ZPJ4DQlqWhSKITvgzlR3/YQE2hdfP4Jw3qVRkANJz01LLqK9/TA==
   dependencies:
     "@babel/runtime" "^7.18.3"
@@ -1598,7 +1598,7 @@
 
 "@mui/material@^5.10.1":
   version "5.10.1"
-  resolved "https://registry.npmjs.org/@mui/material/-/material-5.10.1.tgz"
+  resolved "https://registry.yarnpkg.com/@mui/material/-/material-5.10.1.tgz#4a980c1fc34e2853d674dd0eff2723618402a4f4"
   integrity sha512-E9fhskX6TwUdAzpL5+yoAzRxb6wY4oBqmBVlgUuLndSwPRYxXoGu+z74NxbDEkxUoHdb7vrDcRTswpB6ykDITQ==
   dependencies:
     "@babel/runtime" "^7.17.2"
