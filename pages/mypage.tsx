@@ -5,6 +5,7 @@ import sessionState from '../store/session';
 import userState from '../store/user';
 import { getUser } from '../apis/auth';
 import { User } from '@supabase/supabase-js';
+import BadgeStats from '../components/mypage/BadgeStats';
 
 export const MyPage = () => {
   const [user, setUser] = useRecoilState<User | null>(userState);
@@ -16,10 +17,13 @@ export const MyPage = () => {
   }, [session]);
 
   return (
-    <Profile
-      avatarUrl={user?.user_metadata.avatar_url}
-      name={user?.user_metadata.name}
-    />
+    <>
+      <Profile
+        avatarUrl={user?.user_metadata.avatar_url}
+        name={user?.user_metadata.name}
+      />
+      <BadgeStats />
+    </>
   );
 };
 
