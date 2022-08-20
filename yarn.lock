@@ -1598,7 +1598,7 @@
 
 "@mui/material@^5.10.1":
   version "5.10.1"
-  resolved "https://registry.npmjs.org/@mui/material/-/material-5.10.1.tgz"
+  resolved "https://registry.yarnpkg.com/@mui/material/-/material-5.10.1.tgz#4a980c1fc34e2853d674dd0eff2723618402a4f4"
   integrity sha512-E9fhskX6TwUdAzpL5+yoAzRxb6wY4oBqmBVlgUuLndSwPRYxXoGu+z74NxbDEkxUoHdb7vrDcRTswpB6ykDITQ==
   dependencies:
     "@babel/runtime" "^7.17.2"
