@@ -7,13 +7,15 @@ import { COLORS } from '../../styles/palette';
 import BadgeStats from '../../components/mypage/BadgeStats';
 import CustomHead from '../../components/common/CustomHead';
 import MainBadgeList from '../../components/mypage/MainBadgeList';
-import { FiChevronRight } from 'react-icons/fi';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import Link from 'next/link';
 import { useState } from 'react';
 import BadgeSettingModal from '../../components/mypage/BadgeSettingModal';
 import FeedList from '../../components/common/FeedList';
+import { useRouter } from 'next/router';
 
 export const MyPage = () => {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const user = useRecoilValue(userState);
   const handleOpen = () => setOpen(true);
@@ -23,6 +25,7 @@ export const MyPage = () => {
       <CustomHead title="My Page | AimEco" />
       <Wrapper>
         <Box>
+          <FiChevronLeft onClick={() => router.push('/')} />
           <Profile
             avatarUrl={user?.user_metadata.avatar_url}
             name={user?.user_metadata.name}
@@ -70,18 +73,22 @@ export default MyPage;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 2rem;
 `;
 
 const Box = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   padding: 1.5rem 1rem;
   background-color: ${COLORS.cream};
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
   box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.2);
+  svg {
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
 `;
 
 const Heading = styled.div`

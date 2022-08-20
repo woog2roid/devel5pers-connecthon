@@ -5,6 +5,7 @@ import { COLORS } from '../../styles/palette';
 import { useState } from 'react';
 import BadgeSettingModal from '../../components/mypage/BadgeSettingModal';
 import CustomHead from '../../components/common/CustomHead';
+import TopHeading from '../../components/common/TopHeading';
 
 const MyBadges = () => {
   const [open, setOpen] = useState(false);
@@ -14,7 +15,7 @@ const MyBadges = () => {
     <>
       <CustomHead title={'나의 뱃지들 | AimEco'} />
       <Wrapper>
-        <Heading>나의 뱃지들</Heading>
+        <TopHeading title="나의 뱃지들" />
         <MainBadgeList />
         <div>
           <p onClick={handleOpen}>대표뱃지 설정하기</p>
