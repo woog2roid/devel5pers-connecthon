@@ -9,7 +9,7 @@ export default function NewFeed() {
     return (
         <>
             {feedData.map((item, i) => {
-                return <div style={{borderRadius: "5px", boxShadow: "0px 1px 2px 0px rgba(0,0,0,0.3)", margin: "10px", padding: "3px"}}>
+                return <div key={i} style={{borderRadius: "5px", boxShadow: "0px 1px 2px 0px rgba(0,0,0,0.3)", margin: "10px", padding: "3px"}}>
                     <div style={{ display: "flex", margin: "10px", marginTop: "15px" }}>
                         <ProfileImg><div style={{ width: "30px", height: "30px", backgroundColor: '#FFC090' }} /></ProfileImg>
                         <div style={{ display: "inline", marginTop: "4px", marginLeft: "10px", color: "#444444", fontSize: "14px" }}>{item.user_name}</div>
