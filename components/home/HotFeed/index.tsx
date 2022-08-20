@@ -42,6 +42,7 @@ export default function HotFeed({ name }: IProps) {
             <Image
               key={i}
               src={item}
+              alt="hot feed images"
               style={{ width: '120px', height: '100px', marginRight: '3px' }}
               width="100%"
               height="100%"
