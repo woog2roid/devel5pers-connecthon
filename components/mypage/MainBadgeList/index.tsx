@@ -11,10 +11,17 @@ import userState from '../../../store/user';
 import BadgeItem from '../BadgeItem';
 import { css } from '@emotion/css';
 
-const MainBadgeList = ({ scroll }: { scroll: boolean }) => {
+
+interface propsType {
+  size?: number;
+  scroll: boolean
+}
+
+const MainBadgeList = ({ size, scroll }: propsType) => {
   const [loading, setLoading] = useState(false);
   const user = useRecoilValue(userState);
   const [mainBadgeList, setMainBadgeList] = useRecoilState(mainBadgeListState);
+
   useEffect(() => {
     const getMainBadgeList = async () => {
       setLoading(true);
@@ -26,6 +33,10 @@ const MainBadgeList = ({ scroll }: { scroll: boolean }) => {
     };
     getMainBadgeList();
   }, [user, setMainBadgeList]);
+
+  //Modal을 추가하면서 key가 겹치지 않도록 하기 위해서 key에 cheat을 이용
+  const keyDuplicatedCheat = size ?? 0;
+
   return !loading ? (
     <>
       {mainBadgeList.length === 0 ? (
@@ -33,13 +44,16 @@ const MainBadgeList = ({ scroll }: { scroll: boolean }) => {
           <p>대표뱃지가 설정되지 않았습니다.</p>
         </BadgeWrapper>
       ) : (
+
+        <List>
         <ul className={scroll ? scrollStyle : notScrollStyle}>
           {mainBadgeList.map((badge: ProfileBadgeMappingWithBadge) => (
             <BadgeItem
               main={true}
               badge={badge}
-              key={badge.badges.id}
+              key={badge.badges.id + keyDuplicatedCheat}
               cursor={false}
+              size={size}
             />
           ))}
         </ul>

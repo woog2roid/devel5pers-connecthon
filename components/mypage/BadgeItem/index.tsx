@@ -15,9 +15,10 @@ interface BadgeItemProps {
   badge: IBadge;
   cursor: boolean;
   main: boolean;
+  size?: number;
 }
 
-const BadgeItem = ({ badge, cursor, main }: BadgeItemProps) => {
+const BadgeItem = ({ badge, cursor, main, size }: BadgeItemProps) => {
   const user = useRecoilValue(userState);
   const { iconUrl, name, id } = badge.badges;
   const [toggle, setToggle] = useState<boolean>(badge.is_representative);
@@ -46,8 +47,8 @@ const BadgeItem = ({ badge, cursor, main }: BadgeItemProps) => {
             borderRadius: '50%',
             display: 'block',
           }}
-          width={100}
-          height={100}
+          width={size ?? 100}
+          height={size ?? 100}
         />
       </Badge>
       <div className="title">{name}</div>
