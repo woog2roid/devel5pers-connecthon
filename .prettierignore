@@ -1,0 +1,5 @@
+node_modules/
+.next/
+**/*.js
+.storybook/
+types/supabase.ts
