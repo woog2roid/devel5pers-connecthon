@@ -6,10 +6,12 @@ import { getProfile, updateProfile } from "../../../apis/profile";
 import userState from "../../../store/user";
 import { definitions } from "../../../types/supabase";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const ProfileEdit = () => {
   const user = useRecoilValue(userState)
   const [profile, setProfile] = useState<definitions['profiles']>()
+  const router = useRouter();
 
   useEffect(() => {
       (async () => {
@@ -20,6 +22,7 @@ const ProfileEdit = () => {
   const onDone = async () => {
     if (user !== null && profile !== undefined) {
       await updateProfile(profile, user?.id)
+      router.push('/mypage')
     }
   }
 
