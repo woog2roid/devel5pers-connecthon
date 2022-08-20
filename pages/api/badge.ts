@@ -1,18 +1,5 @@
-import { supabase } from '../../utils/supabase';
 import { definitions } from '../../types/supabase';
-
-// userId와 badgeId를 받아서 특정 유저의 특정 뱃지 하나를 받아옴
-export const getBadge = async (userId: string, badgeId: string) => {
-  const result = await supabase
-    .from<definitions['profile_badge_mappings']>('profile_badge_mappings')
-    .select()
-    .match({
-      profile_id: userId,
-      badge_id: badgeId,
-    });
-
-  return result;
-};
+import { supabase } from '../../utils/supabase';
 
 // userId를 받아서 특정 유저의 모든 뱃지를 받아옴
 export const getBadgesByUserId = async (userId: string) => {
@@ -28,7 +15,7 @@ export const getBadgesByUserId = async (userId: string) => {
 };
 
 // userId와 badgeId를 받아서 특정 유저에게 뱃지를 부여
-export const addBadgeToUser = async (userId: string, badgeId: string) => {
+export const addBadgeToUser = async (userId: string, badgeId: number) => {
   const result = await supabase
     .from<definitions['profile_badge_mappings']>('profile_badge_mappings')
     .insert([
@@ -54,11 +41,9 @@ export const updateBadgeCount = async (
 ) => {
   const result = await supabase
     .from<definitions['profile_badge_mappings']>('profile_badge_mappings')
-    .update([
-      {
+    .update({
         count,
-      },
-    ])
+    })
     .match({
       profile_id: userId,
       badge_id: badgeId,
