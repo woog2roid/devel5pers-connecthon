@@ -38,7 +38,7 @@ const Home: NextPage = () => {
           <HotFeed
             name={'🔥 인기 피드'}
             images={userImages}
-            url={'/new-feed-page'}
+            url={'/new-feed-page?title=🔥 인기 피드'}
           />
           <HotFeed
             name={'🌎 인기 환경 보호 챌린지'}
