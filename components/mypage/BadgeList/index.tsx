@@ -1,12 +1,11 @@
 import styled from '@emotion/styled';
 import { Skeleton } from '@mui/material';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { getUser } from '../../../apis/auth';
 import { getBadgesByUserId } from '../../../apis/profile';
 import { badgeListState } from '../../../store/badge';
 import userState from '../../../store/user';
-import IBadge from '../../../types/badge';
 import BadgeItem from '../BadgeItem';
 
 interface BadgeListProps {
@@ -14,11 +13,12 @@ interface BadgeListProps {
 }
 
 const BadgeList = ({ cursor }: BadgeListProps) => {
+  const [loading, setLoading] = useState(false);
   const [user, setUser] = useRecoilState(userState);
   const [badgeList, setBadgeList] = useRecoilState(badgeListState);
   useEffect(() => {
-    if (badgeList !== null) return;
     const getBadgeList = async () => {
+      setLoading(true);
       if (user !== null) {
         const result = await getBadgesByUserId(user.id);
         setBadgeList(result);
@@ -27,14 +27,15 @@ const BadgeList = ({ cursor }: BadgeListProps) => {
         const data = getUser();
         setUser(data);
       }
+      setLoading(false);
     };
     getBadgeList();
   }, [user]);
   return (
     <>
-      {badgeList !== null ? (
+      {!loading ? (
         <List>
-          {badgeList.map((badge: IBadge) => (
+          {badgeList.map((badge) => (
             <BadgeItem
               main={false}
               badge={badge}

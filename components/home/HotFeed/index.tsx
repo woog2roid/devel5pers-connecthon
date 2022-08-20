@@ -1,6 +1,7 @@
 import { Divider } from '@mui/material';
 import { FeedOfImages, Wrapper } from './style';
 import Image from "next/image";
+import Link from 'next/link';
 
 interface IProps {
   name: string;
@@ -32,7 +33,11 @@ export default function HotFeed({ name }: IProps) {
         <Divider />
         <Wrapper>
           <span style={{ fontSize: '14px' }}>🔥 {name}</span>
+          <Link href='/new-feed-page'>
+          <a>
           <span style={{ color: 'gray' }}>더보기</span>
+          </a>
+          </Link>
         </Wrapper>
         <Divider />
       </div>
@@ -48,8 +53,10 @@ export default function HotFeed({ name }: IProps) {
               height="100%"
             />
           );
-        })}
+        }
+        )}
       </FeedOfImages>
     </div>
   );
+
 }
