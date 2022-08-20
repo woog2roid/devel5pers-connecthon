@@ -1,7 +1,7 @@
 import { Divider } from '@mui/material';
-import { Wrapper } from './style';
 import Link from 'next/link';
 import FeedList from '../../common/FeedList';
+import { Wrapper } from './style';
 
 interface IProps {
   name: string;

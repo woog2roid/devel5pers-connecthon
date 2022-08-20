@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { BiEditAlt } from 'react-icons/bi';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface ProfileProps {
   avatarUrl: string;
@@ -25,7 +26,9 @@ const Profile = ({ avatarUrl, name }: ProfileProps) => {
       <Row>
         <div>
           <h3>{name}</h3>
-          <BiEditAlt />
+          <Link href="/mypage/edit/profile">
+            <BiEditAlt />
+          </Link>
         </div>
         <p>팔로워 0 팔로잉 0</p>
       </Row>
