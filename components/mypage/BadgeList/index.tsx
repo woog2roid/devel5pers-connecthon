@@ -55,8 +55,9 @@ export default BadgeList;
 
 const List = styled.ul`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(106px, 106px));
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: 2rem;
   justify-content: center;
-  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
 `;
