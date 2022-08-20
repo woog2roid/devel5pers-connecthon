@@ -8,7 +8,10 @@ interface ProfileProps {
 const Profile = ({ avatarUrl, name }: ProfileProps) => {
   return (
     <Wrapper>
-      <img src={avatarUrl ? avatarUrl : '/images/user-default.png'} />
+      <img
+        src={avatarUrl ? avatarUrl : '/images/user-default.png'}
+        alt="user profile"
+      />
       <div>
         <p>{name}</p>
         <p>팔로워 0 팔로잉 0</p>
