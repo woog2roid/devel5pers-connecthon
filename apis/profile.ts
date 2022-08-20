@@ -65,7 +65,7 @@ export const getBadgesByUserId = async (userId: string) =>
         .match({
           profile_id: userId,
         })
-        .order('created_at'),
+        .order('created_at', { ascending: false }),
     userId,
   );
 
