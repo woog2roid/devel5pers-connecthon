@@ -32,7 +32,7 @@ export const addBadgeToUser = async (userId: string, badgeId: number) => {
 */
 export const updateBadgeCount = async (
   userId: string,
-  badgeId: string,
+  badgeId: number,
   count: number,
 ) => {
   return supabase
@@ -47,7 +47,7 @@ export const updateBadgeCount = async (
 };
 
 // 유저가 특정 뱃지를 삭제할 수 있음
-export const deleteBadge = async (userId: string, badgeId: string) => {
+export const deleteBadge = async (userId: string, badgeId: number) => {
   return supabase
     .from<definitions['profile_badge_mappings']>('profile_badge_mappings')
     .delete()
