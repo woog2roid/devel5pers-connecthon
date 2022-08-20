@@ -26,9 +26,9 @@ export const MyPage = () => {
   const [profile, setProfile] = useState<definitions['profiles']>();
   useEffect(() => {
     (async () => {
-      if (user !== null) setProfile((await getProfile(user.id))[0])
-    })()
-  }, [user, setProfile])
+      if (user !== null) setProfile((await getProfile(user.id))[0]);
+    })();
+  }, [user, setProfile]);
 
   return (
     <>
