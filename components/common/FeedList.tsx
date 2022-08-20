@@ -6,7 +6,7 @@ interface IProps {
   images: string[];
 }
 
-const FeedList = ({images}: IProps) => {
+const FeedList = ({ images }: IProps) => {
   return (
     <FeedOfImages>
       {images.map((item, i) => {
