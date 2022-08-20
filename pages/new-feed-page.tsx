@@ -7,12 +7,18 @@ import styled from '@emotion/styled';
 
 export default function NewFeedPage() {
   const router = useRouter();
-  const title = router.query.title as string;
+  const title = router.query?.title as string | undefined;
+  useEffect(() => {
+    console.log(title);
+    if (title === undefined) {
+      router.push('/');
+    }
+  }, []);
   return title ? (
     <>
       <CustomHead title={`${title} | AimEco`} />
       <Wrapper>
-        <TopHeading title={title} to={'/'} />
+        <TopHeading title={title ? title : ''} to={'/'} />
         <FeedWrapper>
           <NewFeed />
         </FeedWrapper>
