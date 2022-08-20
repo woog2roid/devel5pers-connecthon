@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getBadgesByUserId } from '../../../apis/profile';
 import { Wrapper } from './style';
 import BadgeItem from '../BadgeItem';
@@ -10,10 +10,10 @@ import { getUser } from '../../../apis/auth';
 const BadgeStats = () => {
   const [user, setUser] = useRecoilState(userState);
   const [badges, setBadges] = useRecoilState(badgeListState);
-
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
-    if (badges !== null) return;
     const getBadges = async () => {
+      setLoading(true);
       if (user !== null) {
         const result = await getBadgesByUserId(user?.id);
         setBadges(result);
@@ -21,6 +21,7 @@ const BadgeStats = () => {
         const data = getUser();
         setUser(data);
       }
+      setLoading(false);
     };
     getBadges();
   }, [user]);
@@ -29,12 +30,12 @@ const BadgeStats = () => {
     <Wrapper>
       <div>
         <p>⭐ 뱃지 개수</p>
-        <p className="large">{badges === null ? null : `${badges.length}개`}</p>
+        <p className="large">{loading ? null : `${badges.length}개`}</p>
       </div>
       <div>
         <p>🏆 최근 획득한 뱃지</p>
         <div>
-          {badges === null ? null : badges.length > 0 ? (
+          {loading ? null : badges.length > 0 ? (
             <BadgeItem badge={badges[0]} cursor={false} main={false} />
           ) : (
             <></>

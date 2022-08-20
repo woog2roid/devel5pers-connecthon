@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
     p.large {
       font-weight: bold;
       font-size: 1.9rem;
-      margin-top: 2rem;
+      margin: 2rem 0;
     }
   }
   & > div:last-child {
