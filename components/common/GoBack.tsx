@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { ArrowBackOutlined } from '@material-ui/icons';
+import { ArrowBackOutlined } from '@mui/icons-material';
 import Link from 'next/link';
 
 const GoBack = ({ targetLink }: { targetLink: string }) => (
