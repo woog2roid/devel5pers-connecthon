@@ -1,10 +1,10 @@
-import MenuBtn from "../home/MenuBtn";
+import MenuBtn from "../MenuBtn";
+
+const btnNames = [
+    '뉴스', '도서관', '캠페인', '스토어'
+];
 
 export default function MenuBtnList() {
-    const btnNames = [
-        '뉴스', '도서관', '캠페인', '스토어'
-    ];
-
     return (
     <div style={{display: "flex", flexWrap: "wrap"}}>
         { btnNames.map((item, i) => {
