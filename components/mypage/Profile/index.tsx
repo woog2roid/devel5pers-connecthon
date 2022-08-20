@@ -51,7 +51,11 @@ const Profile = ({ avatarUrl, name }: ProfileProps) => {
           <p>팔로워 0 팔로잉 0</p>
         </Row>
       </Wrapper>
-      <Modal open={open} handleClose={handleClose} />
+      <Modal
+        open={open}
+        handleClose={handleClose}
+        avatarUrl={avatarUrl ? avatarUrl : '/images/user-default.png'}
+      />
     </>
   );
 };
@@ -78,5 +82,11 @@ const Row = styled.div`
     svg {
       cursor: pointer;
     }
+  }
+  span {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    cursor: pointer;
   }
 `;
