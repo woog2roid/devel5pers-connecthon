@@ -18,8 +18,8 @@ const Library = () => {
 
   return (
     <LibraryListWrapper>
-      { data?.map((it) => (
-        <Link href={`/library/${it.id}`}>
+      { data?.map((it, idx) => (
+        <Link key={idx} href={`/library/${it.id}`}>
           <a>
             <LibraryItem src={(it.image[0] as string)} />
           </a>
