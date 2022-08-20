@@ -22,13 +22,11 @@ const NewsList = () => {
   return (
     <>
       {isLoading ? (
-        newsData?.map((news, idx) => {
-          return (
-            <Row>
-              <NewsItem news={news} />
-            </Row>
-          );
-        })
+        newsData?.map((news, idx) => (
+          <Row key={idx}>
+            <NewsItem news={news} />
+          </Row>
+        ))
       ) : (
         <div
           style={{

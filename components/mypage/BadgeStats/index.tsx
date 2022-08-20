@@ -12,13 +12,13 @@ const BadgeStats = () => {
   const [loading, setLoading] = useState(false);
 
   const getBadges = useCallback(async () => {
-      setLoading(true);
-      if (user !== null) {
-        const result = await getBadgesByUserId(user?.id);
-        setBadges(result);
-      }
-      setLoading(false);
-  }, [setBadges, user])
+    setLoading(true);
+    if (user !== null) {
+      const result = await getBadgesByUserId(user?.id);
+      setBadges(result);
+    }
+    setLoading(false);
+  }, [setBadges, user]);
 
   useEffect(() => {
     getBadges();

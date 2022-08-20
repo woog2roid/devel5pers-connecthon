@@ -1,34 +1,34 @@
-import styled from "@emotion/styled";
-import Image from "next/image"
-import { useState } from "react";
-import { useRecoilValue } from "recoil";
-import { getProfile, updateProfile } from "../../../apis/profile";
-import userState from "../../../store/user";
-import { definitions } from "../../../types/supabase";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
+import styled from '@emotion/styled';
+import Image from 'next/image';
+import { useState } from 'react';
+import { useRecoilValue } from 'recoil';
+import { getProfile, updateProfile } from '../../../apis/profile';
+import userState from '../../../store/user';
+import { definitions } from '../../../types/supabase';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 const ProfileEdit = () => {
-  const user = useRecoilValue(userState)
-  const [profile, setProfile] = useState<definitions['profiles']>()
+  const user = useRecoilValue(userState);
+  const [profile, setProfile] = useState<definitions['profiles']>();
   const router = useRouter();
 
   useEffect(() => {
-      (async () => {
-        setProfile((await getProfile(user?.id ?? ''))[0])
-      })();
-  }, [setProfile])
+    (async () => {
+      setProfile((await getProfile(user?.id ?? ''))[0]);
+    })();
+  }, [setProfile]);
 
   const onDone = async () => {
     if (user !== null && profile !== undefined) {
-      await updateProfile(profile, user?.id)
-      router.push('/mypage')
+      await updateProfile(profile, user?.id);
+      router.push('/mypage');
     }
-  }
+  };
 
   return (
     <Wrapper>
-      { user ?
+      {user ? (
         <>
           <Image
             src={user.user_metadata['avatar_url']}
@@ -36,22 +36,31 @@ const ProfileEdit = () => {
             width="200"
             height="200"
           />
-          <NameInput value={profile?.name} onChange={(e) => {
-            if (profile !== undefined) {
-              const newProfile = {
-                ...profile,
-                name: e.target.value,
+          <NameInput
+            value={profile?.name}
+            onChange={(e) => {
+              if (profile !== undefined) {
+                const newProfile = {
+                  ...profile,
+                  name: e.target.value,
+                };
+                setProfile(newProfile);
               }
-              setProfile(newProfile)
-            }
-          }} />
-          <button onClick={onDone} style={{ 
-            margin: '5px',
-            backgroundColor: 'lime',
-          }}>DummyOnDone</button>
-        </> :
-        "Please Log in"
-      }
+            }}
+          />
+          <button
+            onClick={onDone}
+            style={{
+              margin: '5px',
+              backgroundColor: 'lime',
+            }}
+          >
+            DummyOnDone
+          </button>
+        </>
+      ) : (
+        'Please Log in'
+      )}
     </Wrapper>
   );
 };
@@ -66,7 +75,7 @@ const Wrapper = styled.div`
   justify-items: center;
   align-items: center;
   padding: 5rem;
-`
+`;
 
 const NameInput = styled.input`
   width: 15rem;
@@ -79,4 +88,4 @@ const NameInput = styled.input`
   &:focus {
     outline: none;
   }
-`
+`;
