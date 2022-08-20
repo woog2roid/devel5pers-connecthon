@@ -16,8 +16,10 @@ const MyBadges = () => {
       <Wrapper>
         <Heading>나의 뱃지들</Heading>
         <MainBadgeList />
-        <p onClick={handleOpen}>대표뱃지 설정하기</p>
-        <BadgeList cursor={false} />
+        <div>
+          <p onClick={handleOpen}>대표뱃지 설정하기</p>
+          <BadgeList cursor={false} />
+        </div>
       </Wrapper>
       <BadgeSettingModal open={open} handleClose={handleClose} />
     </>
@@ -38,6 +40,7 @@ const Wrapper = styled.div`
     text-decoration: underline;
     opacity: 0.6;
     font-size: 0.8rem;
+    margin-bottom: 0.6rem;
   }
 `;
 

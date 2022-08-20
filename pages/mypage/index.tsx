@@ -55,6 +55,18 @@ export const MyPage = () => {
           </Heading>
           <MainBadgeList />
         </div>
+        <div>
+          <Heading>
+            <div>
+              <h3>피드</h3>
+              <Link href="/mypage/badges">
+                <a>
+                  <FiChevronRight />
+                </a>
+              </Link>
+            </div>
+          </Heading>
+        </div>
       </Wrapper>
       <BadgeSettingModal open={open} handleClose={handleClose} />
     </>

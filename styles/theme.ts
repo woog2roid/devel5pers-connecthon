@@ -24,6 +24,10 @@ export const muiTheme = createTheme({
       main: COLORS.lightGreen,
       contrastText: '#000',
     },
+    info: {
+      main: COLORS.orange,
+      contrastText: '#000',
+    },
   },
 });
 
