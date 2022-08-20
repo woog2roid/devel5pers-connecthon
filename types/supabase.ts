@@ -19,6 +19,9 @@ export interface paths {
           id?: parameters["rowFilter.profiles.id"];
           created_at?: parameters["rowFilter.profiles.created_at"];
           level?: parameters["rowFilter.profiles.level"];
+          name?: parameters["rowFilter.profiles.name"];
+          profile_image?: parameters["rowFilter.profiles.profile_image"];
+          description?: parameters["rowFilter.profiles.description"];
           /** Filtering Columns */
           select?: parameters["select"];
           /** Ordering */
@@ -72,6 +75,9 @@ export interface paths {
           id?: parameters["rowFilter.profiles.id"];
           created_at?: parameters["rowFilter.profiles.created_at"];
           level?: parameters["rowFilter.profiles.level"];
+          name?: parameters["rowFilter.profiles.name"];
+          profile_image?: parameters["rowFilter.profiles.profile_image"];
+          description?: parameters["rowFilter.profiles.description"];
         };
         header: {
           /** Preference */
@@ -89,6 +95,9 @@ export interface paths {
           id?: parameters["rowFilter.profiles.id"];
           created_at?: parameters["rowFilter.profiles.created_at"];
           level?: parameters["rowFilter.profiles.level"];
+          name?: parameters["rowFilter.profiles.name"];
+          profile_image?: parameters["rowFilter.profiles.profile_image"];
+          description?: parameters["rowFilter.profiles.description"];
         };
         body: {
           /** profiles */
@@ -207,7 +216,7 @@ export interface paths {
         query: {
           id?: parameters["rowFilter.posts.id"];
           created_at?: parameters["rowFilter.posts.created_at"];
-          certificate?: parameters["rowFilter.posts.certificate"];
+          category?: parameters["rowFilter.posts.category"];
           description?: parameters["rowFilter.posts.description"];
           image?: parameters["rowFilter.posts.image"];
           author_id?: parameters["rowFilter.posts.author_id"];
@@ -263,7 +272,7 @@ export interface paths {
         query: {
           id?: parameters["rowFilter.posts.id"];
           created_at?: parameters["rowFilter.posts.created_at"];
-          certificate?: parameters["rowFilter.posts.certificate"];
+          category?: parameters["rowFilter.posts.category"];
           description?: parameters["rowFilter.posts.description"];
           image?: parameters["rowFilter.posts.image"];
           author_id?: parameters["rowFilter.posts.author_id"];
@@ -283,7 +292,7 @@ export interface paths {
         query: {
           id?: parameters["rowFilter.posts.id"];
           created_at?: parameters["rowFilter.posts.created_at"];
-          certificate?: parameters["rowFilter.posts.certificate"];
+          category?: parameters["rowFilter.posts.category"];
           description?: parameters["rowFilter.posts.description"];
           image?: parameters["rowFilter.posts.image"];
           author_id?: parameters["rowFilter.posts.author_id"];
@@ -416,6 +425,12 @@ export interface definitions {
      * @default 0
      */
     level: number;
+    /** Format: text */
+    name: string;
+    /** Format: text */
+    profile_image?: string;
+    /** Format: text */
+    description?: string;
   };
   profile_badge_mappings: {
     /**
@@ -456,11 +471,11 @@ export interface definitions {
      * Format: text
      * @default NULL
      */
-    certificate?: string;
+    category?: string;
     /** Format: text */
     description?: string;
-    /** Format: text */
-    image: string;
+    /** Format: ARRAY */
+    image: unknown[];
     /**
      * Format: uuid
      * @description Note:
@@ -523,6 +538,12 @@ export interface parameters {
   "rowFilter.profiles.created_at": string;
   /** Format: integer */
   "rowFilter.profiles.level": string;
+  /** Format: text */
+  "rowFilter.profiles.name": string;
+  /** Format: text */
+  "rowFilter.profiles.profile_image": string;
+  /** Format: text */
+  "rowFilter.profiles.description": string;
   /** @description profile_badge_mappings */
   "body.profile_badge_mappings": definitions["profile_badge_mappings"];
   /** Format: timestamp with time zone */
@@ -540,10 +561,10 @@ export interface parameters {
   /** Format: timestamp with time zone */
   "rowFilter.posts.created_at": string;
   /** Format: text */
-  "rowFilter.posts.certificate": string;
+  "rowFilter.posts.category": string;
   /** Format: text */
   "rowFilter.posts.description": string;
-  /** Format: text */
+  /** Format: ARRAY */
   "rowFilter.posts.image": string;
   /** Format: uuid */
   "rowFilter.posts.author_id": string;
