@@ -19,37 +19,52 @@ const Profile = ({ avatarUrl, name }: ProfileProps) => {
   return (
     <>
       <Wrapper>
-        <div
-          style={{
-            marginRight: '10px',
-          }}
-        >
-          <Image
-            src={avatarUrl ? avatarUrl : '/images/user-default.png'}
-            alt="user profile"
-            width="60%"
-            height="60%"
-          />
-        </div>
-        <div></div>
-        <Row>
-          <div>
-            <h3>{name}</h3>
-            <span>
-              <Image
-                src="/images/instagram.png"
-                alt="instagram"
-                width="18px"
-                height="18px"
-                onClick={handleOpen}
-              />
-              <Link href="/mypage/edit/profile">
-                <BiEditAlt />
-              </Link>
-            </span>
+        <div style={{
+          display: "flex",
+          alignItems: "center",
+          flexGrow: 3,
+        }}>
+          <div
+            style={{
+              marginRight: '10px',
+            }}
+          >
+            <Image
+              src={avatarUrl ? avatarUrl : '/images/user-default.png'}
+              alt="user profile"
+              width="60%"
+              height="60%"
+            />
           </div>
-          <p>팔로워 0 팔로잉 0</p>
-        </Row>
+          <div style={{
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "flex-start",
+            alignContent: "center",
+          }}>
+            <h3>{name}</h3>
+            <p>팔로워 0 팔로잉 0</p>
+          </div>
+        </div>
+        <div style={{
+          width: "30%",
+          display: "flex",
+          alignContent: "center",
+          justifyContent: "flex-end",
+          flexGrow: 1,
+        }}>
+          <Image
+            src="/images/instagram.png"
+            alt="instagram"
+            width="50"
+            height="50"
+            onClick={handleOpen}
+          />
+          <Link href="/mypage/edit/profile">
+            <BiEditAlt size={50} />
+          </Link>
+        </div>
       </Wrapper>
       <Modal
         open={open}
@@ -63,8 +78,10 @@ const Profile = ({ avatarUrl, name }: ProfileProps) => {
 export default Profile;
 
 const Wrapper = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   img {
     width: 3rem;
     height: 3rem;
