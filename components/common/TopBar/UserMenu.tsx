@@ -1,12 +1,22 @@
 import Image from 'next/image';
-import { CustomMenuItem, CustomMenu } from './style';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import sessionState from '../../../store/session';
 import userState from '../../../store/user';
 import { signOutGoogle } from '../../../apis/auth';
-import { Divider, List } from '@mui/material';
+import {
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Menu,
+  MenuItem,
+} from '@mui/material';
+import Link from 'next/link';
+import { AccountBoxOutlined, AccountCircle, Logout } from '@mui/icons-material';
+import React from 'react';
 
 const UserMenu = () => {
   const router = useRouter();
@@ -19,18 +29,16 @@ const UserMenu = () => {
     signOutGoogle();
     handleClose();
   };
-  const onClickMypage = () => {
-    router.push('./mypage');
-    handleClose();
-  };
 
-  //User Menu 구현
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
+  const [anchorElement, setAnchorElement] = React.useState<null | HTMLElement>(
+    null,
+  );
+  const open = Boolean(anchorElement);
+  const openMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElement(event.currentTarget);
   };
   const handleClose = () => {
-    setAnchorEl(null);
+    setAnchorElement(null);
   };
 
   return (
@@ -50,33 +58,31 @@ const UserMenu = () => {
         height={30}
         aria-controls="menu-appbar"
         aria-haspopup="true"
-        onClick={handleMenu}
+        onClick={openMenu}
       />
-      <CustomMenu
-        id="menu-appbar"
-        anchorEl={anchorEl}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'right',
-        }}
-        keepMounted
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        open={Boolean(anchorEl)}
+      <Menu
+        anchorEl={anchorElement}
+        open={open}
         onClose={handleClose}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button',
-        }}
-        sx={{ width: 180, height: 103 }}
+        onClick={handleClose}
+        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <List sx={{ padding: 0, margin: 0, width: 180 }}>
-          <CustomMenuItem onClick={onClickMypage}>마이페이지</CustomMenuItem>
-          <Divider />
-          <CustomMenuItem onClick={onClickLogout}>로그아웃</CustomMenuItem>
-        </List>
-      </CustomMenu>
+        <Link href="/mypage">
+          <MenuItem sx={{fontSize: 14}}>
+            <ListItemIcon>
+              <AccountCircle />
+            </ListItemIcon>
+            마이페이지
+          </MenuItem>
+        </Link>
+        <MenuItem onClick={onClickLogout} sx={{fontSize: 14}}>
+          <ListItemIcon>
+            <Logout />
+          </ListItemIcon>
+          로그아웃
+        </MenuItem>
+      </Menu>
     </>
   );
 };

@@ -54,7 +54,7 @@ export default function MenuBtn({ btn }: IProp) {
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    paddingBottom: '2px'
+                    paddingBottom: '2px',
                   }}
                 >
                   {btn.name === '뉴스' ? (
