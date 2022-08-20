@@ -22,7 +22,7 @@ const Profile = ({ avatarUrl, name }: ProfileProps) => {
         <div style={{
           display: "flex",
           alignItems: "center",
-          flexGrow: 3,
+          flexGrow: 8,
         }}>
           <div
             style={{
@@ -48,21 +48,33 @@ const Profile = ({ avatarUrl, name }: ProfileProps) => {
           </div>
         </div>
         <div style={{
-          width: "30%",
           display: "flex",
           alignContent: "center",
-          justifyContent: "flex-end",
+          justifyContent: "space-between",
           flexGrow: 1,
         }}>
           <Image
             src="/images/instagram.png"
             alt="instagram"
-            width="50"
-            height="50"
+            width="35"
+            height="35"
             onClick={handleOpen}
           />
           <Link href="/mypage/edit/profile">
-            <BiEditAlt size={50} />
+            <div style={{ 
+              background: "rgb(255,192,144) linear-gradient(45deg, rgba(255,192,144,1) 0%, rgba(177,215,180,1) 81%, rgba(127,183,126,1) 100%)",
+              borderRadius: '100%', 
+              width: '35px',
+              height: '35px',
+            }}>
+              <BiEditAlt color="white" size={25} style={{
+                position: "relative",
+                margin: 0,
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+              }}/>
+            </div>
           </Link>
         </div>
       </Wrapper>
@@ -87,23 +99,5 @@ const Wrapper = styled.div`
     height: 3rem;
     margin-right: 1rem;
     border-radius: 50%;
-  }
-`;
-
-const Row = styled.div`
-  width: 100%;
-  & > div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    svg {
-      cursor: pointer;
-    }
-  }
-  span {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    cursor: pointer;
   }
 `;
