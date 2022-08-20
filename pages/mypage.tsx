@@ -9,11 +9,12 @@ import { User } from '@supabase/supabase-js';
 export const MyPage = () => {
   const [user, setUser] = useRecoilState<User | null>(userState);
   const session = useRecoilValue(sessionState);
+
   useEffect(() => {
     const data = getUser();
     setUser(data);
-    console.log(data);
   }, [session]);
+
   return (
     <Profile
       avatarUrl={user?.user_metadata.avatar_url}

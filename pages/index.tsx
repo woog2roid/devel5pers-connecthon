@@ -12,7 +12,6 @@ const Home: NextPage = () => {
     const data = getSession();
     setSession(data);
     supabase.auth.onAuthStateChange((_event, session) => {
-      console.log(_event);
       setSession(session);
     });
   }, [setSession]);
