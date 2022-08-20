@@ -16,7 +16,7 @@ const Dialog = styled.div`
   height: 100px;
   align-items: center;
   justify-content: center;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 5px;
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.5);
 `;
@@ -26,49 +26,54 @@ export default function MenuBtn({ btn }: IProp) {
 
   const handleOpen = () => {
     setIsOpen(true);
-  }
+  };
 
   const handleClose = () => {
     setIsOpen(false);
-  }
+  };
   const sx = {};
 
   return (
     <>
       <Row>
-
         <Link href={btn.link}>
           <a>
-        <div
-          style={{ display: 'flex', width: '100%', justifyContent: 'center' }}
-        >
-          <Wrapper>
             <div
               style={{
-                width: '70px',
-                height: '70px',
-                backgroundColor: '#7FB77E',
                 display: 'flex',
+                width: '100%',
                 justifyContent: 'center',
-                alignItems: 'center',
               }}
             >
-              {btn.name === '뉴스' ? (
-                <Newspaper sx={{ color: 'white' }} />
-              ) : btn.name === '도서관' ? (
-                <MenuBook sx={{ color: 'white' }} />
-              ) : btn.name === '캠페인' ? (
-                <Campaign sx={{ color: 'white' }} />
-              ) : btn.name === '스토어' ? (
-                <LocalMall sx={{ color: 'white' }} />
-              ) : (
-                <></>
-              )}
+              <Wrapper>
+                <div
+                  style={{
+                    width: '70px',
+                    height: '70px',
+                    backgroundColor: '#7FB77E',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                >
+                  {btn.name === '뉴스' ? (
+                    <Newspaper sx={{ color: 'white' }} />
+                  ) : btn.name === '도서관' ? (
+                    <MenuBook sx={{ color: 'white' }} />
+                  ) : btn.name === '캠페인' ? (
+                    <Campaign sx={{ color: 'white' }} />
+                  ) : btn.name === '스토어' ? (
+                    <LocalMall sx={{ color: 'white' }} />
+                  ) : (
+                    <></>
+                  )}
+                </div>
+              </Wrapper>
             </div>
-          </Wrapper>
-        </div>
-        <div style={{ fontFamily: 'NotoSans', textAlign :'center' }}>{btn.name}</div>
-        </a>
+            <div style={{ fontFamily: 'NotoSans', textAlign: 'center' }}>
+              {btn.name}
+            </div>
+          </a>
         </Link>
       </Row>
     </>

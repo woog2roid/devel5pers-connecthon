@@ -53,7 +53,8 @@ export default function HotFeed({ name }: IProps) {
               height="100%"
             />
           );
-        })}
+        }
+        )}
       </FeedOfImages>
     </div>
   );

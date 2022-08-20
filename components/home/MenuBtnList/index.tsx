@@ -1,18 +1,11 @@
 import MenuBtn from '../MenuBtn';
 
 const btns = [
-  { name: '뉴스',
-    link: '/newsPage'
-  },
-  { name: '도서관',
-    link: '/library'
-  },
-  { name: '캠페인',
-    link: ''
-  },
-  { name: '스토어',
-    link: ''
-  }];
+  { name: '뉴스', link: '/newsPage' },
+  { name: '도서관', link: '/library' },
+  { name: '캠페인', link: '' },
+  { name: '스토어', link: '' },
+];
 
 export default function MenuBtnList() {
   return (
