@@ -16,10 +16,12 @@ const BadgeStats = () => {
       const user = await getUser();
       if (user !== null) {
         const reuslt = await getBadgesByUserId(user?.id);
-        const refinedData = reuslt.map((data) => {
-          return data.badges;
-        });
-        console.log(refinedData);
+        const refinedData = reuslt.map((data) => ({
+          id: data.badges.id,
+          iconUrl: data.badges.iconUrl ?? '',
+          name: data.badges.name ?? '',
+        }));
+
         setBadges(refinedData);
       }
     };
@@ -39,7 +41,7 @@ const BadgeStats = () => {
           {badges.length > 0 ? (
             <BadgeItem
               id={badges[0].id}
-              url={badges[0].iconUrl}
+              iconUrl={badges[0].iconUrl}
               name={badges[0].name}
             />
           ) : (
