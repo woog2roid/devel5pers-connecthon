@@ -25,7 +25,7 @@ const NewsList = () => {
         newsData?.map((news, idx) => {
           return (
             <Row>
-              <NewsItem key={idx} news={news} />
+              <NewsItem news={news} />
             </Row>
           );
         })
