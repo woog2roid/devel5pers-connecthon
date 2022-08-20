@@ -8,7 +8,7 @@
 
 서비스 QR 코드 (모바일 환경에 최적화 되어있습니다.)
 
-- <img src="https://raw.githubusercontent.com/woog2roid/devel5pers-connecthon/main/docs/QRcode.png" alt="QR코드" style="width: 100px;"/>
+- <img src="https://raw.githubusercontent.com/woog2roid/devel5pers-connecthon/main/docs/QRcode.png" alt="QR코드" style="width: 200px;"/>
 
 ## 목차
 
