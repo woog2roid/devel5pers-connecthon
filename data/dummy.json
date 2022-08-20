@@ -1,17 +1,17 @@
 [
-    {
-        "user_name": "조혜진",
-        "image_url": "https://blog.fantasticservices.com/wp-content/uploads/2021/03/recycling-at-home.jpg",
-        "content": "오늘도 분리수거를 실천했다!! :> 나는야 멋진 사람!"
-    },
-    {
-        "user_name": "강은비",
-        "image_url": "https://blog.kakaocdn.net/dn/bu1NQ3/btq5MncFiHx/PC8ZuQK8gWQSQ2kkGIhzaK/img.png",
-        "content": "오랜만에 플로깅~~~! 보람찬 활동이었당ㅎㅎ"
-    },
-    {
-        "user_name": "김대현",
-        "image_url": "https://cdn.discordapp.com/attachments/1008295001781960792/1010538810498613388/unknown.png",
-        "content": "텀블러 샀지롱 하하하하"
-    }
+  {
+    "user_name": "조혜진",
+    "image_url": "https://blog.fantasticservices.com/wp-content/uploads/2021/03/recycling-at-home.jpg",
+    "content": "오늘도 분리수거를 실천했다!! :> 나는야 멋진 사람!"
+  },
+  {
+    "user_name": "강은비",
+    "image_url": "https://blog.kakaocdn.net/dn/bu1NQ3/btq5MncFiHx/PC8ZuQK8gWQSQ2kkGIhzaK/img.png",
+    "content": "오랜만에 플로깅~~~! 보람찬 활동이었당ㅎㅎ"
+  },
+  {
+    "user_name": "김대현",
+    "image_url": "https://cdn.discordapp.com/attachments/1008295001781960792/1010538810498613388/unknown.png",
+    "content": "텀블러 샀지롱 하하하하"
+  }
 ]

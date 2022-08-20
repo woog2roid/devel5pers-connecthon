@@ -136,21 +136,24 @@ export const deleteBadge = async (userId: string, badgeId: number) =>
 
 export const getProfile = async (userId: string) =>
   handleSupabaseError(
-    async (userId: string) => supabase
-      .from<definitions['profiles']>('profiles')
-      .select()
-      .match({ id: userId }),
+    async (userId: string) =>
+      supabase
+        .from<definitions['profiles']>('profiles')
+        .select()
+        .match({ id: userId }),
     userId,
-  )
+  );
 
 export const updateProfile = async (
   profile: definitions['profiles'],
   targetId: string,
-) => handleSupabaseError(
-    async (profile, targetId) => supabase
-      .from<definitions['profiles']>('profiles')
-      .update(profile)
-      .match({ id: targetId }),
+) =>
+  handleSupabaseError(
+    async (profile, targetId) =>
+      supabase
+        .from<definitions['profiles']>('profiles')
+        .update(profile)
+        .match({ id: targetId }),
     profile,
     targetId,
-  )
+  );
