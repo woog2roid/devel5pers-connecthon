@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { BiEditAlt } from 'react-icons/bi';
-import Image from "next/image";
+import Image from 'next/image';
 
 interface ProfileProps {
   avatarUrl: string;
@@ -12,7 +12,7 @@ const Profile = ({ avatarUrl, name }: ProfileProps) => {
     <Wrapper>
       <div
         style={{
-          marginRight: "10px",
+          marginRight: '10px',
         }}
       >
         <Image

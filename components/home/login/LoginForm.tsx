@@ -16,7 +16,7 @@ const LoginForm = () => {
         <FormInput label="아이디" name="id" type="text" />
         <FormInput label="비밀번호" name="password" type="password" />
         <CustomButton onClick={signInGoogle} variant="contained">
-          <Image src="images/google-icon.png" />
+          <Image src="images/google-icon.png" alt="google logo" />
           구글로 로그인하기
         </CustomButton>
       </Form>

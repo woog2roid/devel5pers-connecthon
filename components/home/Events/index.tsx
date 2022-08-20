@@ -16,15 +16,16 @@ export default function Events() {
       modules={[Navigation, Pagination, Autoplay]}
       navigation
       pagination={{ clickable: true }}
-      style={{ height: "150px" }}
+      style={{ height: '150px' }}
       autoplay={{
         delay: 1000,
       }}
     >
       {items.map((item, i) => (
         <SwiperSlide key={i}>
-          <Image 
+          <Image
             src={item}
+            alt="carousel images"
             width="100%"
             height="80px"
             layout="responsive"
