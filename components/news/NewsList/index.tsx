@@ -23,11 +23,7 @@ const NewsList = () => {
     <>
       {isLoading ? (
         newsData?.map((news, idx) => {
-          return (
-            <Row>
-              <NewsItem key={idx} news={news} />
-            </Row>
-          );
+          return <Row key={idx}><NewsItem news={news} /></Row>;
         })
       ) : (
         <div
