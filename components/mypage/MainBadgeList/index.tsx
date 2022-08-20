@@ -10,7 +10,11 @@ import { mainBadgeListState } from '../../../store/badge';
 import userState from '../../../store/user';
 import BadgeItem from '../BadgeItem';
 
-const MainBadgeList = () => {
+interface propsType {
+  size?: number;
+}
+
+const MainBadgeList = ({ size }: propsType) => {
   const [loading, setLoading] = useState(false);
   const user = useRecoilValue(userState);
   const [mainBadgeList, setMainBadgeList] = useRecoilState(mainBadgeListState);
@@ -39,6 +43,7 @@ const MainBadgeList = () => {
               badge={badge}
               key={badge.badges.id}
               cursor={false}
+              size={size}
             />
           ))}
         </List>
