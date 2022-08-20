@@ -1,4 +1,4 @@
-import { supabase } from '../../utils/supabase';
+import { supabase } from '../utils/supabase';
 
 export const signInGoogle = async () => {
   return supabase.auth.signIn({

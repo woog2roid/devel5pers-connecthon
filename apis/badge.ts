@@ -1,5 +1,5 @@
-import { definitions } from '../../types/supabase';
-import { supabase } from '../../utils/supabase';
+import { definitions } from '../types/supabase';
+import { supabase } from '../utils/supabase';
 
 // userId를 받아서 특정 유저의 모든 뱃지를 받아옴
 export const getBadgesByUserId = async (userId: string) => {

@@ -1,5 +1,5 @@
-import { supabase } from '../../utils/supabase';
-import { definitions } from '../../types/supabase';
+import { supabase } from '../utils/supabase';
+import { definitions } from '../types/supabase';
 
 export const getPostById = async (id: number) => {
   return supabase.from<definitions['posts']>('posts').select().match({
