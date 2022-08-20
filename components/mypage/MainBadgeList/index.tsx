@@ -1,19 +1,23 @@
 import styled from '@emotion/styled';
 import { Skeleton } from '@mui/material';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { getUser } from '../../../apis/auth';
-import { getRepresentativeBadges, ProfileBadgeMappingWithBadge } from '../../../apis/profile';
+import {
+  getRepresentativeBadges,
+  ProfileBadgeMappingWithBadge,
+} from '../../../apis/profile';
 import { mainBadgeListState } from '../../../store/badge';
 import userState from '../../../store/user';
 import BadgeItem from '../BadgeItem';
 
 const MainBadgeList = () => {
+  const [loading, setLoading] = useState(false);
   const [user, setUser] = useRecoilState(userState);
   const [mainBadgeList, setMainBadgeList] = useRecoilState(mainBadgeListState);
   useEffect(() => {
-    if (mainBadgeList !== null) return;
     const getMainBadgeList = async () => {
+      setLoading(true);
       if (user !== null) {
         const result = await getRepresentativeBadges(user.id);
         setMainBadgeList(result);
@@ -21,10 +25,11 @@ const MainBadgeList = () => {
         const data = getUser();
         setUser(data);
       }
+      setLoading(false);
     };
     getMainBadgeList();
-  }, [user, mainBadgeList, setMainBadgeList]);
-  return mainBadgeList !== null ? (
+  }, [user, setMainBadgeList]);
+  return !loading ? (
     <>
       {mainBadgeList.length === 0 ? (
         <BadgeWrapper>
