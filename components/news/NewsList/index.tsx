@@ -21,12 +21,26 @@ const NewsList = () => {
 
   return (
     <>
-      {isLoading ?
+      {isLoading ? (
         newsData?.map((news, idx) => {
-          return <Row><NewsItem key={idx} news={news} /></Row>;
+          return (
+            <Row>
+              <NewsItem key={idx} news={news} />
+            </Row>
+          );
         })
-        : <div style={{display: "flex", width: "100%", justifyContent: "center", marginTop: "50px"}}>
-        <CircularProgress color="inherit" /></div> }
+      ) : (
+        <div
+          style={{
+            display: 'flex',
+            width: '100%',
+            justifyContent: 'center',
+            marginTop: '50px',
+          }}
+        >
+          <CircularProgress color="inherit" />
+        </div>
+      )}
     </>
   );
 };

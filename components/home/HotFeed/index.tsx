@@ -1,6 +1,6 @@
 import { Divider } from '@mui/material';
 import { FeedOfImages, Wrapper } from './style';
-import Image from "next/image";
+import Image from 'next/image';
 
 interface IProps {
   name: string;

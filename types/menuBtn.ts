@@ -1,4 +1,4 @@
 export interface IMenuBtn {
-    name: string;
-    link: string;
+  name: string;
+  link: string;
 }
