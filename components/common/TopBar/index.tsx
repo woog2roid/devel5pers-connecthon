@@ -1,6 +1,7 @@
 import { AddAPhotoOutlined } from '@mui/icons-material';
 import { Wrapper } from './style';
 import UserMenu from './UserMenu';
+import { FaSeedling } from 'react-icons/fa';
 
 //depth가 깊지 않은, 즉, params가 없을 때의 TopBar
 const TopBar = () => {
@@ -10,7 +11,10 @@ const TopBar = () => {
 
   return (
     <Wrapper>
-      <div className="title">AIMECO</div>
+      <div className="title">
+        <FaSeedling />
+        AIMECO
+      </div>
       <div>
         <AddAPhotoOutlined
           onClick={onClickPost}
