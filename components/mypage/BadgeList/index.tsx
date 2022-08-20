@@ -26,6 +26,7 @@ const BadgeList = ({ cursor }: BadgeListProps) => {
     <List>
       {badgeList.map((badge: any) => (
         <BadgeItem
+          key={badge.badges.id}
           badge={badge.badges}
           cursor={cursor}
           is_representative={badge.is_representative}
