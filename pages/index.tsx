@@ -6,7 +6,7 @@ import sessionState from '../store/session';
 import { getSession } from '../apis/auth';
 import { supabase } from '../utils/supabase';
 import Events from '../components/home/Events';
-import MenuBtnList from '../components/MenuBtnList';
+import MenuBtnList from '../components/home/MenuBtnList';
 
 const Home: NextPage = () => {
 
