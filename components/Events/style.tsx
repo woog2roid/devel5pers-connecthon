@@ -1,9 +1,12 @@
 import styled from '@emotion/styled';
 
 export const Image = styled.div`
-    display: flex;
-    height:300px;
+    height: 150px;
     background-repeat: no-repeat;
     overflow: hidden;
-    justify-content: center;
+    padding-bottom: 150px;
+
+    img {
+        width: 100%;
+    }
 `;
