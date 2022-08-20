@@ -6,7 +6,6 @@ import { getUser } from '../../../apis/auth';
 import { getBadgesByUserId } from '../../../apis/profile';
 import { badgeListState } from '../../../store/badge';
 import userState from '../../../store/user';
-import IBadge from '../../../types/badge';
 import BadgeItem from '../BadgeItem';
 
 interface BadgeListProps {
@@ -36,7 +35,7 @@ const BadgeList = ({ cursor }: BadgeListProps) => {
     <>
       {!loading ? (
         <List>
-          {badgeList.map((badge: IBadge) => (
+          {badgeList.map((badge) => (
             <BadgeItem
               main={false}
               badge={badge}

@@ -1,8 +1,7 @@
 import styled from '@emotion/styled';
 import { Skeleton } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { useRecoilState } from 'recoil';
-import { getUser } from '../../../apis/auth';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import {
   getRepresentativeBadges,
   ProfileBadgeMappingWithBadge,
@@ -13,7 +12,7 @@ import BadgeItem from '../BadgeItem';
 
 const MainBadgeList = () => {
   const [loading, setLoading] = useState(false);
-  const [user, setUser] = useRecoilState(userState);
+  const user = useRecoilValue(userState);
   const [mainBadgeList, setMainBadgeList] = useRecoilState(mainBadgeListState);
   useEffect(() => {
     const getMainBadgeList = async () => {
@@ -21,9 +20,6 @@ const MainBadgeList = () => {
       if (user !== null) {
         const result = await getRepresentativeBadges(user.id);
         setMainBadgeList(result);
-      } else {
-        const data = getUser();
-        setUser(data);
       }
       setLoading(false);
     };

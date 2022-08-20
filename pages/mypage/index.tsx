@@ -1,11 +1,7 @@
-import { useEffect } from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import Profile from '../../components/mypage/Profile';
 import ProofStats from '../../components/mypage/ProofStats';
-import sessionState from '../../store/session';
 import userState from '../../store/user';
-import { getUser } from '../../apis/auth';
-import { User } from '@supabase/supabase-js';
 import styled from '@emotion/styled';
 import { COLORS } from '../../styles/palette';
 import BadgeStats from '../../components/mypage/BadgeStats';
@@ -18,13 +14,7 @@ import BadgeSettingModal from '../../components/mypage/BadgeSettingModal';
 
 export const MyPage = () => {
   const [open, setOpen] = useState(false);
-  const [user, setUser] = useRecoilState<User | null>(userState);
-  const session = useRecoilValue(sessionState);
-  useEffect(() => {
-    const data = getUser();
-    setUser(data);
-    console.log(data);
-  }, [session, setUser]);
+  const user = useRecoilValue(userState);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
