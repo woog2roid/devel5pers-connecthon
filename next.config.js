@@ -6,6 +6,7 @@ const nextConfig = {
     domains: [
       'localhost',
       'mediahub.seoul.go.kr',
+      'lh3.googleusercontent.com',
     ],
   },
 };
