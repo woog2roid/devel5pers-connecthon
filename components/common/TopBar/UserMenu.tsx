@@ -6,6 +6,7 @@ import { useRecoilValue } from 'recoil';
 import sessionState from '../../../store/session';
 import userState from '../../../store/user';
 import { signOutGoogle } from '../../../apis/auth';
+import { Divider, List } from '@mui/material';
 
 const UserMenu = () => {
   const router = useRouter();
@@ -69,9 +70,13 @@ const UserMenu = () => {
         MenuListProps={{
           'aria-labelledby': 'basic-button',
         }}
+        sx={{ width: 180, height: 110 }}
       >
-        <CustomMenuItem onClick={onClickMypage}>마이페이지</CustomMenuItem>
-        <CustomMenuItem onClick={onClickLogout}>로그아웃</CustomMenuItem>
+        <List sx={{ padding: 0, margin: 0, width: 180, height: 110 }}>
+          <CustomMenuItem onClick={onClickMypage}>마이페이지</CustomMenuItem>
+          <Divider />
+          <CustomMenuItem onClick={onClickLogout}>로그아웃</CustomMenuItem>
+        </List>
       </CustomMenu>
     </>
   );
