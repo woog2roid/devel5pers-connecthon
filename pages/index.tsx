@@ -4,11 +4,17 @@ import { useRecoilState } from 'recoil';
 import LoginForm from '../components/login/LoginForm';
 import sessionState from '../store/session';
 import { getSession } from '../apis/auth';
+import { supabase } from '../utils/supabase';
 
 const Home: NextPage = () => {
   const [session, setSession] = useRecoilState(sessionState);
   useEffect(() => {
-    setSession(getSession());
+    const data = getSession();
+    setSession(data);
+    supabase.auth.onAuthStateChange((_event, session) => {
+      console.log(_event);
+      setSession(session);
+    });
   }, []);
   return <>{!session ? <LoginForm /> : 'Hello, World!'}</>;
 };
