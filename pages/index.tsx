@@ -1,10 +1,12 @@
 import type { NextPage } from 'next';
 import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
-import LoginForm from '../components/login/LoginForm';
+import LoginForm from '../components/home/login/LoginForm';
 import sessionState from '../store/session';
 import { getSession } from '../apis/auth';
 import { supabase } from '../utils/supabase';
+import Events from '../components/home/Events';
+import MenuBtnList from '../components/home/MenuBtnList';
 
 const Home: NextPage = () => {
   const [session, setSession] = useRecoilState(sessionState);
@@ -16,7 +18,18 @@ const Home: NextPage = () => {
       setSession(session);
     });
   }, [setSession]);
-  return <>{!session ? <LoginForm /> : 'Hello, World!'}</>;
+  return (
+    <>
+      {!session ? (
+        <LoginForm />
+      ) : (
+        <>
+          <Events />
+          <MenuBtnList />
+        </>
+      )}
+    </>
+  );
 };
 
 export default Home;
