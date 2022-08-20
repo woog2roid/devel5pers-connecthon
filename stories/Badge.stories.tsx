@@ -9,7 +9,7 @@ export default {
 export const Primary: ComponentStory<typeof BadgeItem> = () => (
   <BadgeItem
     id={1}
-    url={'http://localhost:3000/images/badge/welcome.png'}
+    iconUrl={'http://localhost:3000/images/badge/welcome.png'}
     name={'첫 발걸음'}
   />
 );
