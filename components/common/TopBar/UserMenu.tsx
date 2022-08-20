@@ -12,7 +12,6 @@ const UserMenu = () => {
   const router = useRouter();
 
   //recoil
-  const session = useRecoilValue(sessionState);
   const user = useRecoilValue(userState);
 
   //onClick 구현
