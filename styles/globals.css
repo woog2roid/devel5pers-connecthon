@@ -2,8 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: NotoSans;
 }
 
 a {
@@ -13,6 +12,36 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  padding: 0;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+input {
+  font-family: NotoSans;
+}
+
+@font-face {
+  font-family: 'NotoSans';
+  src: url('../public/fonts/NotoSansKR-Regular.otf') format('opentype');
 }
 
 @media (prefers-color-scheme: dark) {
