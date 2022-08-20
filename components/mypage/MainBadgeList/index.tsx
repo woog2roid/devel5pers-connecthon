@@ -18,6 +18,7 @@ const MainBadgeList = ({ size }: propsType) => {
   const [loading, setLoading] = useState(false);
   const user = useRecoilValue(userState);
   const [mainBadgeList, setMainBadgeList] = useRecoilState(mainBadgeListState);
+
   useEffect(() => {
     const getMainBadgeList = async () => {
       setLoading(true);
@@ -29,6 +30,10 @@ const MainBadgeList = ({ size }: propsType) => {
     };
     getMainBadgeList();
   }, [user, setMainBadgeList]);
+
+  //Modal을 추가하면서 key가 겹치지 않도록 하기 위해서 key에 cheat을 이용
+  const keyDuplicatedCheat = size ?? 0;
+
   return !loading ? (
     <>
       {mainBadgeList.length === 0 ? (
@@ -37,11 +42,12 @@ const MainBadgeList = ({ size }: propsType) => {
         </BadgeWrapper>
       ) : (
         <List>
+          {/* Modal을 추가하면서 key가 겹치지 않도록 하기 위해서 key에 cheat을 이용*/}
           {mainBadgeList.map((badge: ProfileBadgeMappingWithBadge) => (
             <BadgeItem
               main={true}
               badge={badge}
-              key={badge.badges.id}
+              key={badge.badges.id + keyDuplicatedCheat}
               cursor={false}
               size={size}
             />
