@@ -35,8 +35,16 @@ const Home: NextPage = () => {
           <TopBar />
           <Events />
           <MenuBtnList />
-          <HotFeed name={'🔥 인기 피드'} images={userImages} url={'/new-feed-page'} />
-          <HotFeed name={'인기 환경 보호 챌린지'} images={campaignImages} url={'/'} />
+          <HotFeed
+            name={'🔥 인기 피드'}
+            images={userImages}
+            url={'/new-feed-page'}
+          />
+          <HotFeed
+            name={'🌎 인기 환경 보호 챌린지'}
+            images={campaignImages}
+            url={'/'}
+          />
         </>
       )}
     </>
