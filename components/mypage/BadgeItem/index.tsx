@@ -2,11 +2,11 @@ import Image from 'next/image';
 import { Wrapper } from './style';
 import IBadge from '../../../types/badge';
 
-const BadgeItem = ({ id, url, name }: IBadge) => {
+const BadgeItem = ({ id, iconUrl, name }: IBadge) => {
   return (
     <Wrapper>
       <Image
-        src={url}
+        src={iconUrl}
         alt="Badge Image"
         style={{
           borderRadius: '50%',
