@@ -17,7 +17,7 @@ export default function HotFeed({ name }: IProps) {
     >
       <Wrapper>
         <span style={{ fontSize: '14px' }}>{name}</span>
-        <Link href="/new-feed-page">
+        <Link href={`/new-feed-page?title=${name}`}>
           <a>
             <span style={{ color: 'gray', fontSize: '12px' }}>더보기</span>
           </a>
