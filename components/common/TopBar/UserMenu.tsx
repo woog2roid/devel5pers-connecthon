@@ -70,9 +70,9 @@ const UserMenu = () => {
         MenuListProps={{
           'aria-labelledby': 'basic-button',
         }}
-        sx={{ width: 180, height: 110 }}
+        sx={{ width: 180, height: 103 }}
       >
-        <List sx={{ padding: 0, margin: 0, width: 180, height: 110 }}>
+        <List sx={{ padding: 0, margin: 0, width: 180 }}>
           <CustomMenuItem onClick={onClickMypage}>마이페이지</CustomMenuItem>
           <Divider />
           <CustomMenuItem onClick={onClickLogout}>로그아웃</CustomMenuItem>
