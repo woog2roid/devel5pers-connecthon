@@ -8,9 +8,9 @@ const BadgeItem = ({ id, url, name }: IBadge) => {
       <Image
         src={url}
         alt="Badge Image"
-        style={{ borderRadius: '50%' }}
-        width={300}
-        height={300}
+        style={{ borderRadius: '50%', display: 'block' }}
+        width={100}
+        height={100}
       />
       <div className="title">{name}</div>
     </Wrapper>
