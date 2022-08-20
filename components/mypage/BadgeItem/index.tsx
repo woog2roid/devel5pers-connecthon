@@ -25,7 +25,12 @@ const BadgeItem = ({ badge, cursor, is_representative }: any) => {
   };
 
   return (
-    <Wrapper style={{ cursor: cursor ? 'pointer' : 'auto' }} onClick={onToggle}>
+    <Wrapper
+      style={{ cursor: cursor ? 'pointer' : 'auto' }}
+      onClick={onToggle}
+      cursor={cursor}
+      toggle={toggle}
+    >
       <Image
         src={iconUrl}
         alt="Badge Image"
@@ -37,23 +42,9 @@ const BadgeItem = ({ badge, cursor, is_representative }: any) => {
         height={100}
       />
       <div className="title">{name}</div>
-      <CheckIcon toggle={toggle} cursor={cursor} />
+      <AiOutlineCheckCircle />
     </Wrapper>
   );
 };
 
 export default BadgeItem;
-
-const CheckIcon = styled(AiOutlineCheckCircle)<{
-  cursor: boolean;
-  toggle: boolean;
-}>`
-  display: ${({ cursor, toggle }) =>
-    cursor ? (toggle ? 'block' : 'none') : 'none'};
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: ${COLORS.orange};
-  font-size: 3rem;
-`;
