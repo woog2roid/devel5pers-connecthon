@@ -9,6 +9,7 @@ import { supabase } from '../utils/supabase';
 const Home: NextPage = () => {
   const [session, setSession] = useRecoilState(sessionState);
   useEffect(() => {
+<<<<<<< HEAD
     const data = getSession();
     setSession(data);
     supabase.auth.onAuthStateChange((_event, session) => {
@@ -16,6 +17,10 @@ const Home: NextPage = () => {
       setSession(session);
     });
   }, []);
+=======
+    setSession(getSession());
+  }, [setSession]);
+>>>>>>> b0529d99862dd922b29dab835de2d1a93cb13a0d
   return <>{!session ? <LoginForm /> : 'Hello, World!'}</>;
 };
 
