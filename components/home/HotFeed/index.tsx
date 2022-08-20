@@ -19,7 +19,7 @@ export default function HotFeed({ name } :IProps) {
             <div style={{marginTop: "30px", boxShadow: "0px 1px 0px 0px rgba(0, 0, 0, 0.1)"}}>
                 <Divider />
                 <Wrapper>
-                    <span>🔥 {name}</span>
+                    <span style={{fontSize: "14px"}}>🔥 {name}</span>
                     <span style={{color: "gray"}}>더보기</span>
                 </Wrapper>
                 <Divider />
