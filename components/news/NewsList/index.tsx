@@ -8,7 +8,7 @@ const NewsList = () => {
 
   useEffect(() => {
     const getNews = async (): Promise<void> => {
-      const result = await axios.get('/api/getNews');
+      const result = await axios.get('/api/news');
       setNewsData(result.data.items);
     };
     getNews();
