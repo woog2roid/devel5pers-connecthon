@@ -60,14 +60,14 @@ const UserMenu = () => {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <Link href="/mypage">
-          <MenuItem>
+          <MenuItem sx={{fontSize: 14}}>
             <ListItemIcon>
               <AccountCircle />
             </ListItemIcon>
             마이페이지
           </MenuItem>
         </Link>
-        <MenuItem onClick={onClickLogout}>
+        <MenuItem onClick={onClickLogout} sx={{fontSize: 14}}>
           <ListItemIcon>
             <Logout />
           </ListItemIcon>
