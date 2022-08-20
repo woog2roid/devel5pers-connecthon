@@ -28,6 +28,7 @@ const Home: NextPage = () => {
           <>
             <Events />
             <MenuBtnList />
+            <HotFeed name={"인기 환경 보호 챌린지"} />
           </>
       }
     </>
