@@ -1,48 +1,47 @@
 import styled from '@emotion/styled';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { getRepresentativeBadges } from '../../../apis/profile';
 import { mainBadgeListState } from '../../../store/badge';
 import userState from '../../../store/user';
+import IBadge from '../../../types/badge';
 import BadgeItem from '../BadgeItem';
 
 const MainBadgeList = () => {
   const user = useRecoilValue(userState);
   const [mainBadgeList, setMainBadgeList] = useRecoilState(mainBadgeListState);
   useEffect(() => {
+    if (mainBadgeList !== null) return;
     const getMainBadgeList = async () => {
       if (user !== null) {
         const result = await getRepresentativeBadges(user.id);
         setMainBadgeList(result);
+        console.log(result);
       }
     };
     getMainBadgeList();
   }, [user]);
-  return (
+  return mainBadgeList !== null ? (
     <>
-      {mainBadgeList !== null && (
-        <>
-          {mainBadgeList.length === 0 ? (
-            <BadgeWrapper>
-              <p>대표뱃지가 설정되지 않았습니다.</p>
-            </BadgeWrapper>
-          ) : (
-            <List>
-              {mainBadgeList.map((badge: any) => (
-                <BadgeItem
-                  main={true}
-                  badge={badge.badges}
-                  key={badge.badges.id}
-                  cursor={false}
-                  is_representative={false}
-                />
-              ))}
-            </List>
-          )}
-        </>
+      {mainBadgeList.length === 0 ? (
+        <BadgeWrapper>
+          <p>대표뱃지가 설정되지 않았습니다.</p>
+        </BadgeWrapper>
+      ) : (
+        <List>
+          {mainBadgeList.map((badge: IBadge) => (
+            <BadgeItem
+              main={true}
+              badge={badge.badges}
+              key={badge.badges.id}
+              cursor={false}
+              is_representative={false}
+            />
+          ))}
+        </List>
       )}
     </>
-  );
+  ) : null;
 };
 
 export default MainBadgeList;
