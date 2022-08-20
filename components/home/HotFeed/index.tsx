@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { Divider } from "@mui/material";
+import Link from "next/link";
 import { FeedOfImages, Wrapper } from "./style";
 
 interface IProps {
@@ -20,7 +21,11 @@ export default function HotFeed({ name } :IProps) {
                 <Divider />
                 <Wrapper>
                     <span style={{fontSize: "14px"}}>🔥 {name}</span>
-                    <span style={{color: "gray"}}>더보기</span>
+                    <Link href='/new-feed-page'>
+                    <a>
+                    <span style={{color: "gray", fontSize: "12px"}}>더보기</span>
+                    </a>
+                    </Link>
                 </Wrapper>
                 <Divider />
             </div>
