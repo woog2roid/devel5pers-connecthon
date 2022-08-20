@@ -2,13 +2,12 @@ import { useCallback, useEffect, useState } from 'react';
 import { getBadgesByUserId } from '../../../apis/profile';
 import { Wrapper } from './style';
 import BadgeItem from '../BadgeItem';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { badgeListState } from '../../../store/badge';
 import userState from '../../../store/user';
-import { getUser } from '../../../apis/auth';
 
 const BadgeStats = () => {
-  const [user, setUser] = useRecoilState(userState);
+  const user = useRecoilValue(userState);
   const [badges, setBadges] = useRecoilState(badgeListState);
   const [loading, setLoading] = useState(false);
 
@@ -17,16 +16,13 @@ const BadgeStats = () => {
       if (user !== null) {
         const result = await getBadgesByUserId(user?.id);
         setBadges(result);
-      } else {
-        const data = getUser();
-        setUser(data);
       }
       setLoading(false);
-  }, [setBadges, setUser, user])
+  }, [setBadges, user])
 
   useEffect(() => {
     getBadges();
-  }, [getBadges, setUser]);
+  }, [getBadges]);
 
   return (
     <Wrapper>
