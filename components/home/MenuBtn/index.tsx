@@ -1,10 +1,9 @@
 import { IMenuBtn } from '../../../types/menuBtn';
 import { Row, Wrapper } from './style';
 import Link from 'next/link';
-import Modal from '@mui/material/Modal';
 import { useState } from 'react';
-import { Box, Typography } from '@mui/material';
 import styled from '@emotion/styled';
+import { Newspaper, LocalMall, Campaign, MenuBook } from '@mui/icons-material';
 
 interface IProp {
   btn: IMenuBtn;
@@ -31,48 +30,45 @@ export default function MenuBtn({ btn }: IProp) {
   const handleClose = () => {
     setIsOpen(false);
   }
-
+  const sx = {};
 
   return (
     <>
       <Row>
-        { btn.link != '' ?
-        (<Link href={btn.link}>
-          <div
-            style={{ display: 'flex', width: '100%', justifyContent: 'center' }}>
-            <Wrapper>
-              <div
-                style={{
-                  width: '70px',
-                  height: '70px',
-                  backgroundColor: '#7FB77E',
-                }}
-              />
-            </Wrapper>
-          </div>
-        </Link>) :
-        (<div
-            style={{ display: 'flex', width: '100%', justifyContent: 'center' }} onClick={handleOpen}>
-            <Wrapper>
-              <div
-                style={{
-                  width: '70px',
-                  height: '70px',
-                  backgroundColor: '#7FB77E',
-                }}
-              />
-            </Wrapper>
-            <Modal
-              open={isOpen}
-              onClose={handleClose}
-            >
-              <Dialog>
-                <p>준비 중입니다.</p>
-              </Dialog>
-            </Modal>
-          </div>)}
 
-        <span style={{ fontFamily: 'NotoSans' }}>{btn.name}</span>
+        <Link href={btn.link}>
+          <div>
+        <div
+          style={{ display: 'flex', width: '100%', justifyContent: 'center' }}
+        >
+          <Wrapper>
+            <div
+              style={{
+                width: '70px',
+                height: '70px',
+                backgroundColor: '#7FB77E',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              {btn.name === '뉴스' ? (
+                <Newspaper sx={{ color: 'white' }} />
+              ) : btn.name === '도서관' ? (
+                <MenuBook sx={{ color: 'white' }} />
+              ) : btn.name === '캠페인' ? (
+                <Campaign sx={{ color: 'white' }} />
+              ) : btn.name === '스토어' ? (
+                <LocalMall sx={{ color: 'white' }} />
+              ) : (
+                <></>
+              )}
+            </div>
+          </Wrapper>
+        </div>
+        <div style={{ fontFamily: 'NotoSans', textAlign :'center' }}>{btn.name}</div>
+        </div>
+        </Link>
       </Row>
     </>
   );
