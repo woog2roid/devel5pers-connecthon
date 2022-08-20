@@ -28,7 +28,6 @@ const Home: NextPage = () => {
           <>
             <Events />
             <MenuBtnList />
-            <HotFeed name={"인기 챌린지"} />
           </>
       }
     </>
