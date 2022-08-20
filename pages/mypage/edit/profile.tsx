@@ -1,9 +1,5 @@
 const ProfileEdit = () => {
-  return (
-    <>
-      Profile Edit
-    </>
-  )
-}
+  return <>Profile Edit</>;
+};
 
-export default ProfileEdit
+export default ProfileEdit;
