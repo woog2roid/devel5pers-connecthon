@@ -1,12 +1,24 @@
 import MenuBtn from '../MenuBtn';
 
-const btnNames = ['뉴스', '도서관', '캠페인', '스토어'];
+const btns = [
+  { name: '뉴스',
+    link: '/newsPage'
+  },
+  { name: '도서관',
+    link: '/library'
+  },
+  { name: '캠페인',
+    link: ''
+  },
+  { name: '스토어',
+    link: ''
+  }];
 
 export default function MenuBtnList() {
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-      {btnNames.map((item, i) => {
-        return <MenuBtn key={i} name={item} />;
+      {btns.map((item, i) => {
+        return <MenuBtn key={i} btn={item} />;
       })}
     </div>
   );
