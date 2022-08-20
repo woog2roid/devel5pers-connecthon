@@ -7,8 +7,8 @@ import Image from 'next/image';
 
 export default function Events() {
   const items = [
-    'https://mediahub.seoul.go.kr/uploads/mediahub/2021/04/pEMzfCNbXjPIYqcfBJERoYJfyzLjeEsQ.png',
-    'https://mediahub.seoul.go.kr/uploads/mediahub/2021/06/kXNfXEGBICWYhTYflcuyzRtdrulfjYDM.png',
+    'https://lotteblog.s3.ap-northeast-2.amazonaws.com/wp-content/uploads/2020/06/KakaoTalk_20200610_102040743.png',
+    'https://skinnonews.com/wp-content/uploads/2018/10/181025_IgreenWegreen%EC%BA%A0%ED%8E%98%EC%9D%B8_%EB%A9%94%EC%9D%B8.jpg',
   ];
 
   return (
@@ -18,18 +18,12 @@ export default function Events() {
       pagination={{ clickable: true }}
       style={{ height: '150px' }}
       autoplay={{
-        delay: 1000,
+        delay: 5000,
       }}
     >
       {items.map((item, i) => (
         <SwiperSlide key={i}>
-          <Image
-            src={item}
-            alt="carousel images"
-            width="100%"
-            height="80px"
-            layout="responsive"
-          />
+          <Image src={item} alt="carousel images" layout="fill" />
         </SwiperSlide>
       ))}
     </Swiper>

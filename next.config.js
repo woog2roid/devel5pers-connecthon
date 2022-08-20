@@ -11,6 +11,9 @@ const nextConfig = {
       'www.psychologicalscience.org',
       'd2qgx4jylglh9c.cloudfront.net',
       'betaimg-cdn.baemin.com',
+      'skinnonews.com',
+      'www.newsro.kr',
+      'lotteblog.s3.ap-northeast-2.amazonaws.com'
     ],
   },
 };
