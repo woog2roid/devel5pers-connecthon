@@ -12,19 +12,17 @@ export default function HotFeed({ name }: IProps) {
     <div
       style={{
         overflow: 'hidden',
+        marginBottom: '1.3rem',
       }}
     >
-      <div style={{}}>
-        <Divider />
-        <Wrapper>
-          <span style={{ fontSize: '14px' }}>🔥 {name}</span>
-          <Link href="/new-feed-page">
-            <a>
-              <span style={{ color: 'gray', fontSize: '12px' }}>더보기</span>
-            </a>
-          </Link>
-        </Wrapper>
-      </div>
+      <Wrapper>
+        <span style={{ fontSize: '14px' }}>{name}</span>
+        <Link href="/new-feed-page">
+          <a>
+            <span style={{ color: 'gray', fontSize: '12px' }}>더보기</span>
+          </a>
+        </Link>
+      </Wrapper>
       <FeedList />
     </div>
   );
