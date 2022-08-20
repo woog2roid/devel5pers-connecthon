@@ -7,8 +7,8 @@ export default function MenuBtnList() {
 
     return (
     <div style={{display: "flex", flexWrap: "wrap"}}>
-        { btnNames.map(item => {
-            return <MenuBtn name={item} />;
+        { btnNames.map((item, i) => {
+            return <MenuBtn key={i} name={item} />;
         }) }
     </div>
     );

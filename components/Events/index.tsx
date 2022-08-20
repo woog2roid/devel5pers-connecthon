@@ -11,7 +11,7 @@ export default function Events() {
     return (
         <Carousel>
             {
-                items.map( item => <Image><img src={ item } /></Image> )
+                items.map( (item, i) => <Image key={i}><img src={ item } /></Image> )
             }
         </Carousel>
     );
