@@ -2,8 +2,6 @@ import Image from 'next/image';
 import { Wrapper } from './style';
 import { useState } from 'react';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
-import styled from '@emotion/styled';
-import { COLORS } from '../../../styles/palette';
 import { useRecoilValue } from 'recoil';
 import userState from '../../../store/user';
 import {
@@ -11,7 +9,7 @@ import {
   unsetRepresentativeBadge,
 } from '../../../apis/profile';
 
-const BadgeItem = ({ badge, cursor, is_representative }: any) => {
+const BadgeItem = ({ badge, cursor, is_representative, main }: any) => {
   const user = useRecoilValue(userState);
   const { iconUrl, name } = badge;
   const [toggle, setToggle] = useState<boolean>(is_representative);
@@ -30,6 +28,7 @@ const BadgeItem = ({ badge, cursor, is_representative }: any) => {
       onClick={onToggle}
       cursor={cursor}
       toggle={toggle}
+      main={main}
     >
       <Image
         src={iconUrl}

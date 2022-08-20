@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import styled from '@emotion/styled';
 import { Newspaper, LocalMall, Campaign, MenuBook } from '@mui/icons-material';
+import { useRouter } from 'next/router';
 
 interface IProp {
   btn: IMenuBtn;
@@ -37,7 +38,7 @@ export default function MenuBtn({ btn }: IProp) {
       <Row>
 
         <Link href={btn.link}>
-          <div>
+          <a>
         <div
           style={{ display: 'flex', width: '100%', justifyContent: 'center' }}
         >
@@ -67,7 +68,7 @@ export default function MenuBtn({ btn }: IProp) {
           </Wrapper>
         </div>
         <div style={{ fontFamily: 'NotoSans', textAlign :'center' }}>{btn.name}</div>
-        </div>
+        </a>
         </Link>
       </Row>
     </>

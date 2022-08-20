@@ -20,26 +20,27 @@ const MainBadgeList = () => {
   }, [user]);
   return (
     <>
-      <ul>
-        {mainBadgeList !== null && (
-          <div>
-            {mainBadgeList.length === 0 ? (
-              <BadgeWrapper>
-                <p>대표뱃지가 설정되지 않았습니다.</p>
-              </BadgeWrapper>
-            ) : (
-              mainBadgeList.map((badge: any) => (
+      {mainBadgeList !== null && (
+        <>
+          {mainBadgeList.length === 0 ? (
+            <BadgeWrapper>
+              <p>대표뱃지가 설정되지 않았습니다.</p>
+            </BadgeWrapper>
+          ) : (
+            <List>
+              {mainBadgeList.map((badge: any) => (
                 <BadgeItem
+                  main={true}
                   badge={badge.badges}
                   key={badge.badges.id}
                   cursor={false}
                   is_representative={false}
                 />
-              ))
-            )}
-          </div>
-        )}
-      </ul>
+              ))}
+            </List>
+          )}
+        </>
+      )}
     </>
   );
 };
@@ -53,4 +54,12 @@ const BadgeWrapper = styled.div`
   align-items: center;
   justify-content: center;
   opacity: 0.5;
+`;
+
+const List = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(106px, 106px));
+  gap: 2rem;
+  justify-content: center;
+  width: 100%;
 `;
