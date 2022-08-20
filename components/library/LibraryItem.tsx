@@ -1,17 +1,17 @@
-import Image from "next/image";
-import styled from "@emotion/styled";
+import Image from 'next/image';
+import styled from '@emotion/styled';
 
 interface LibraryItemProps {
-  src: string
+  src: string;
 }
 
 const LibraryItem = ({ src }: LibraryItemProps) => (
   <ItemWrapper>
     <Image src={src} width="300" height="300" />
   </ItemWrapper>
-)
+);
 
-export default LibraryItem
+export default LibraryItem;
 
 const ItemWrapper = styled.div`
   border-radius: 16px;
@@ -19,4 +19,4 @@ const ItemWrapper = styled.div`
   height: 300px;
   overflow: hidden;
   margin: 5px;
-`
+`;

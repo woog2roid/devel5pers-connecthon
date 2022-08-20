@@ -7,7 +7,5 @@ export default {
 } as ComponentMeta<typeof LibraryItem>;
 
 export const Primary: ComponentStory<typeof LibraryItem> = () => (
-  <LibraryItem
-    src="http://localhost:3000/images/libraries/1/1.png"
-  />
+  <LibraryItem src="http://localhost:3000/images/libraries/1/1.png" />
 );
