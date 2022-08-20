@@ -1,11 +1,16 @@
-import type { NextPage } from 'next'
+import type { NextPage } from 'next';
+import { useEffect } from 'react';
+import { useRecoilState } from 'recoil';
+import LoginForm from '../components/login/LoginForm';
+import sessionState from '../store/session';
+import { getSession } from './api/auth';
 
 const Home: NextPage = () => {
-  return (
-    <>
-      Hello, World!
-    </>
-  )
-}
+  const [session, setSession] = useRecoilState(sessionState);
+  useEffect(() => {
+    setSession(getSession());
+  }, []);
+  return <>{!session ? <LoginForm /> : 'Hello, World!'}</>;
+};
 
-export default Home
+export default Home;
