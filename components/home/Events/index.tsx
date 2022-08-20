@@ -3,11 +3,11 @@ import { Image } from './style';
 
 export default function Events() { 
 
-
-    const items = [
+    const items = [ // 무지성...
         'https://mediahub.seoul.go.kr/uploads/mediahub/2021/04/pEMzfCNbXjPIYqcfBJERoYJfyzLjeEsQ.png',
         'https://mediahub.seoul.go.kr/uploads/mediahub/2021/06/kXNfXEGBICWYhTYflcuyzRtdrulfjYDM.png'
     ]
+
     return (
         <Carousel>
             {
