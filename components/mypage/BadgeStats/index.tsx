@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getUser } from '../../../apis/auth';
-import {
-  getBadgesByUserId,
-  getRepresentativeBadges,
-} from '../../../apis/profile';
+import { getBadgesByUserId } from '../../../apis/profile';
 import IBadge from '../../../types/badge';
 import { Wrapper } from './style';
 import BadgeItem from '../BadgeItem';
@@ -21,11 +18,9 @@ const BadgeStats = () => {
           iconUrl: data.badges.iconUrl ?? '',
           name: data.badges.name ?? '',
         }));
-
         setBadges(refinedData);
       }
     };
-
     getBadges();
   }, []);
 
@@ -39,13 +34,9 @@ const BadgeStats = () => {
         <p>🏆 최근 획득한 뱃지</p>
         <div>
           {badges.length > 0 ? (
-            <BadgeItem
-              id={badges[0].id}
-              iconUrl={badges[0].iconUrl}
-              name={badges[0].name}
-            />
+            <BadgeItem badge={badges[0]} cursor={false} />
           ) : (
-            <>/</>
+            <></>
           )}
         </div>
       </div>

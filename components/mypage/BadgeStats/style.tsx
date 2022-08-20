@@ -10,12 +10,12 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    justify-content: center;
     align-items: center;
     padding: 1rem 0;
     p.large {
       font-weight: bold;
       font-size: 1.9rem;
+      margin-top: 2rem;
     }
   }
   & > div:last-child {
