@@ -11,7 +11,7 @@ const BadgeStats = () => {
   const [badges, setBadges] = useRecoilState(badgeListState);
 
   useEffect(() => {
-    if (badges === null) return;
+    if (badges !== null) return;
     const getBadges = async () => {
       if (user !== null) {
         const result = await getBadgesByUserId(user?.id);
