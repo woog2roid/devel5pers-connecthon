@@ -10,7 +10,6 @@ import styled from '@emotion/styled';
 import { COLORS } from '../../styles/palette';
 import BadgeStats from '../../components/mypage/BadgeStats';
 import CustomHead from '../../components/common/CustomHead';
-import FeedList from '../../components/mypage/FeedList';
 import MainBadgeList from '../../components/mypage/MainBadgeList';
 import { FiChevronRight } from 'react-icons/fi';
 import Link from 'next/link';
@@ -25,7 +24,7 @@ export const MyPage = () => {
     const data = getUser();
     setUser(data);
     console.log(data);
-  }, [session]);
+  }, [session, setUser]);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
@@ -56,7 +55,6 @@ export const MyPage = () => {
           </Heading>
           <MainBadgeList />
         </div>
-        <FeedList />
       </Wrapper>
       <BadgeSettingModal open={open} handleClose={handleClose} />
     </>

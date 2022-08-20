@@ -4,9 +4,11 @@ import { getBadgesByUserId } from '../../../apis/profile';
 import IBadge from '../../../types/badge';
 import { Wrapper } from './style';
 import BadgeItem from '../BadgeItem';
+import { useRecoilState } from 'recoil';
+import { badgeListState } from '../../../store/badge';
 
 const BadgeStats = () => {
-  const [badges, setBadges] = useState<IBadge[]>([]);
+  const [badges, setBadges] = useRecoilState<IBadge[]>(badgeListState);
 
   useEffect(() => {
     const getBadges = async () => {
@@ -22,7 +24,7 @@ const BadgeStats = () => {
       }
     };
     getBadges();
-  }, []);
+  }, [setBadges]);
 
   return (
     <Wrapper>
