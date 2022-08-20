@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import LoginForm from '../components/login/LoginForm';
 import sessionState from '../store/session';
-import { getSession } from './api/auth';
+import { getSession } from '../apis/auth';
 
 const Home: NextPage = () => {
   const [session, setSession] = useRecoilState(sessionState);
