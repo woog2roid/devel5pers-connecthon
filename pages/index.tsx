@@ -22,7 +22,7 @@ const Home: NextPage = () => {
   return (
     <>
       {
-        !session ? 
+        !session ?
           <LoginForm /> :
           <>
             <Events />
@@ -31,3 +31,6 @@ const Home: NextPage = () => {
       }
     </>
   );
+}
+
+export default Home;
