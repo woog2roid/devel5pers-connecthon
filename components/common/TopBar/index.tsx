@@ -2,6 +2,7 @@ import { AddAPhotoOutlined } from '@mui/icons-material';
 import { Wrapper } from './style';
 import UserMenu from './UserMenu';
 import { FaSeedling } from 'react-icons/fa';
+import { COLORS } from '../../../styles/palette';
 
 //depth가 깊지 않은, 즉, params가 없을 때의 TopBar
 const TopBar = () => {
@@ -11,14 +12,14 @@ const TopBar = () => {
 
   return (
     <Wrapper>
-      <div className="title">
-        <FaSeedling />
-        AIMECO
+      <div className="title" style={{fontSize: "24px", color: `${COLORS.green}`}}>
+        <FaSeedling style={{fontSize: 30, marginRight: "10px"}}/>
+        A I M E C O
       </div>
-      <div>
+      <div style={{marginRight: "3px"}}>
         <AddAPhotoOutlined
           onClick={onClickPost}
-          sx={{ width: '30', height: '30', mr: '10px', color: 'f4444' }}
+          sx={{ fontSize: 30, mr: '12px',mt: '2px', color: `${COLORS.lightGreen}` }}
         />
         <UserMenu />
       </div>
