@@ -4,6 +4,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { getBadgesByUserId } from '../../../apis/profile';
 import { badgeListState } from '../../../store/badge';
 import userState from '../../../store/user';
+import IBadge from '../../../types/badge';
 import BadgeItem from '../BadgeItem';
 
 interface BadgeListProps {
@@ -14,26 +15,32 @@ const BadgeList = ({ cursor }: BadgeListProps) => {
   const user = useRecoilValue(userState);
   const [badgeList, setBadgeList] = useRecoilState(badgeListState);
   useEffect(() => {
+    if (badgeList !== null) return;
     const getBadgeList = async () => {
       if (user !== null) {
         const result = await getBadgesByUserId(user.id);
         setBadgeList(result);
+        console.log(result);
       }
     };
     getBadgeList();
   }, [user]);
   return (
-    <List>
-      {badgeList.map((badge: any) => (
-        <BadgeItem
-          main={false}
-          key={badge.badges.id}
-          badge={badge.badges}
-          cursor={cursor}
-          is_representative={badge.is_representative}
-        />
-      ))}
-    </List>
+    <>
+      {badgeList !== null && (
+        <List>
+          {badgeList.map((badge: IBadge) => (
+            <BadgeItem
+              main={true}
+              badge={badge.badges}
+              key={badge.badges.id}
+              cursor={cursor}
+              is_representative={badge.is_representative}
+            />
+          ))}
+        </List>
+      )}
+    </>
   );
 };
 
