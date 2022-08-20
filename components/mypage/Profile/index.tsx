@@ -25,7 +25,15 @@ const Profile = ({ avatarUrl, name }: ProfileProps) => {
       <Row>
         <div>
           <h3>{name}</h3>
-          <BiEditAlt />
+          <span>
+            <Image
+              src="/images/instagram.png"
+              alt="instagram"
+              width="18px"
+              height="18px"
+            />
+            <BiEditAlt />
+          </span>
         </div>
         <p>팔로워 0 팔로잉 0</p>
       </Row>
