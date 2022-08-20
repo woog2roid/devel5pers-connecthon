@@ -1,4 +1,3 @@
-import { FaNodeJs } from 'react-icons/fa';
 import { definitions } from '../types/supabase';
 import { supabase } from '../utils/supabase';
 import handleSupabaseError from './handleSupabaseError';
@@ -6,12 +5,15 @@ import handleSupabaseError from './handleSupabaseError';
 // userId를 받아서 특정 유저의 모든 뱃지를 받아옴
 export const getBadgesByUserId = async (userId: string) => handleSupabaseError(
   async (userId: string) => supabase
-      .from<definitions['profile_badge_mappings']>('profile_badge_mappings')
-      .select()
-      .match({
-        profile_id: userId,
-      })
-      .order('created_at'),
+    .from<definitions['profile_badge_mappings']>('profile_badge_mappings')
+    .select(`
+      *,
+      badges (*)
+    `)
+    .match({
+      profile_id: userId,
+    })
+    .order('created_at'),
   userId,
 );
 
@@ -31,9 +33,9 @@ export const addBadgeToUser = async (userId: string, badgeId: number) => handleS
 
 // 유저의 뱃지 보유 현황을 업데이트 할 수 있음
 /*
-  분리수거를 몇번 했는지의 뱃지는
-  백엔드에서는 분리수거 뱃지를 몇개 가졌는지로 구현하였기 때문에,
-  분리수거 인증글을 올릴 때 마다 이 api를 호출해서 뱃지 보유 현황을 늘려주어야 함.
+분리수거를 몇번 했는지의 뱃지는
+백엔드에서는 분리수거 뱃지를 몇개 가졌는지로 구현하였기 때문에,
+분리수거 인증글을 올릴 때 마다 이 api를 호출해서 뱃지 보유 현황을 늘려주어야 함.
 */
 export const updateBadgeCount = async (
   userId: string,
