@@ -16,11 +16,10 @@ const TopBar = () => {
         <FaSeedling style={{fontSize: 30, marginRight: "10px"}}/>
         A I M E C O
       </div>
-      <div style={{marginRight: "3px"}}>
-        <AddAPhotoOutlined
+      <div style={{marginRight: "3px", marginTop: "2px"}}>
+        {/*<AddAPhotoOutlined
           onClick={onClickPost}
-          sx={{ fontSize: 30, mr: '12px',mt: '2px', color: `${COLORS.lightGreen}` }}
-        />
+  sx={{ fontSize: 30, mr: '12px',mt: '2px', color: `${COLORS.lightGreen}` }}/>*/}
         <UserMenu />
       </div>
     </Wrapper>

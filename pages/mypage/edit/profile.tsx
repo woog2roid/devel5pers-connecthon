@@ -7,6 +7,7 @@ import userState from '../../../store/user';
 import { definitions } from '../../../types/supabase';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import TopBarForEdit from '../../../components/common/TopBarForEdit';
 
 const ProfileEdit = () => {
   const user = useRecoilValue(userState);
@@ -27,6 +28,8 @@ const ProfileEdit = () => {
   };
 
   return (
+    <>
+    <TopBarForEdit onDone={onDone} />
     <Wrapper>
       {user ? (
         <>
@@ -48,20 +51,12 @@ const ProfileEdit = () => {
               }
             }}
           />
-          <button
-            onClick={onDone}
-            style={{
-              margin: '5px',
-              backgroundColor: 'lime',
-            }}
-          >
-            DummyOnDone
-          </button>
         </>
       ) : (
         'Please Log in'
       )}
     </Wrapper>
+    </>
   );
 };
 

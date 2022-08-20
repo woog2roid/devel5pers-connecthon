@@ -1,21 +1,15 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import userState from '../../../store/user';
 import { signOutGoogle } from '../../../apis/auth';
 import {
-  Drawer,
-  List,
-  ListItem,
-  ListItemButton,
   ListItemIcon,
-  ListItemText,
   Menu,
   MenuItem,
 } from '@mui/material';
 import Link from 'next/link';
-import { AccountBoxOutlined, AccountCircle, Logout } from '@mui/icons-material';
+import { AccountBoxOutlined, AccountCircle, AddAPhotoOutlined, Logout } from '@mui/icons-material';
 import React from 'react';
 
 const UserMenu = () => {
@@ -68,6 +62,12 @@ const UserMenu = () => {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
+        <MenuItem sx={{fontSize: 14}}>
+          <ListItemIcon>
+            <AddAPhotoOutlined />
+          </ListItemIcon>
+            포스팅 작성
+        </MenuItem>
         <Link href="/mypage">
           <MenuItem sx={{fontSize: 14}}>
             <ListItemIcon>
