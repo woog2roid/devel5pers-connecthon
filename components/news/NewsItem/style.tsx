@@ -5,9 +5,10 @@ export const Wrapper = styled.a`
   padding: 3px;
 
   .title {
-    font-size: 16px;
+    font-size: 15px;
   }
   .description {
     font-size: 8px;
+    color: #999999;
   }
 `;
