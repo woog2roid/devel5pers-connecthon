@@ -9,6 +9,7 @@ import Events from '../components/Events';
 import MenuBtnList from '../components/MenuBtnList';
 
 const Home: NextPage = () => {
+
   const [session, setSession] = useRecoilState(sessionState);
   useEffect(() => {
     const data = getSession();
@@ -24,12 +25,9 @@ const Home: NextPage = () => {
         !session ? 
           <LoginForm /> :
           <>
-          <Events />
-          <MenuBtnList />
+            <Events />
+            <MenuBtnList />
           </>
       }
     </>
   );
-};
-
-export default Home
