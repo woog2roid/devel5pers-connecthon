@@ -7,6 +7,7 @@ import { getSession } from '../apis/auth';
 import { supabase } from '../utils/supabase';
 import Events from '../components/home/Events';
 import MenuBtnList from '../components/home/MenuBtnList';
+import TopBar from '../components/common/TopBar';
 
 const Home: NextPage = () => {
   const [session, setSession] = useRecoilState(sessionState);
@@ -23,6 +24,7 @@ const Home: NextPage = () => {
         <LoginForm />
       ) : (
         <>
+          <TopBar />
           <Events />
           <MenuBtnList />
         </>
