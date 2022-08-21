@@ -1,6 +1,7 @@
 ## 환경 운동을 새로운 문화로 만드는 플랫폼
 
 # AIMECO, 환경(ECO)을 사랑(AIMER)하다.
+### 프로젝트 바로가기: [github.com/woog2roid/devel5pers-connecthon](https://github.com/woog2roid/devel5pers-connecthon)
 
 애메코는 환경보호를 하나의 문화로 만들기 위한 서비스입니다.
 
