@@ -11,6 +11,7 @@ export const Wrapper = styled.div<{
   text-align: center;
   padding: 0.5rem;
   border-radius: 1rem;
+  justify-self: center;
   flex-shrink: 0;
   box-shadow: ${({ main }) => main && `1px 5px 10px rgba(0, 0, 0, 0.2)`};
 
