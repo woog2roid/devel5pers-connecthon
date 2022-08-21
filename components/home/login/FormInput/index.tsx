@@ -24,7 +24,7 @@ const FormInput = ({ type, name, label }: FormInputProps) => {
   };
   return (
     <FormControl sx={{ width: '100%' }} variant="outlined">
-      <InputLabel htmlFor={name} sx={{ fontFamily: 'NotoSans' }}>
+      <InputLabel htmlFor={name} sx={{ fontFamily: 'Noto Sans KR' }}>
         {label}
       </InputLabel>
       <OutlinedInput

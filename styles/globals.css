@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: NotoSans;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 a {
@@ -37,16 +39,11 @@ button {
 }
 
 input {
-  font-family: NotoSans;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 ::-webkit-scrollbar {
   display: none;
-}
-
-@font-face {
-  font-family: 'NotoSans';
-  src: url('../public/fonts/NotoSansKR-Regular.otf') format('opentype');
 }
 
 @media (prefers-color-scheme: dark) {

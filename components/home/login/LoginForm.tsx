@@ -59,5 +59,5 @@ const Image = styled.img`
 `;
 
 const CustomButton = styled(Button)`
-  font-family: NotoSans;
+  font-family: Noto Sans KR;
 `;

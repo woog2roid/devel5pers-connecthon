@@ -71,7 +71,7 @@ export default function MenuBtn({ btn }: IProp) {
                 </div>
               </Wrapper>
             </div>
-            <div style={{ fontFamily: 'NotoSans', textAlign: 'center' }}>
+            <div style={{ fontFamily: 'Noto Sans KR', textAlign: 'center' }}>
               {btn.name}
             </div>
           </a>
