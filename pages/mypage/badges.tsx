@@ -41,7 +41,7 @@ const Wrapper = styled.div`
     text-decoration: underline;
     opacity: 0.6;
     font-size: 0.8rem;
-    margin-bottom: 0.6rem;
+    margin-bottom: 1.6rem;
   }
 `;
 
