@@ -45,7 +45,7 @@ const ModalComponent = ({ open, handleClose, avatarUrl }: propsType) => {
           </ProfileWrapper>
           <Spacer />
           <Divider>
-            <CustomedChip label={chipLabel} sx={{ fontFamily: 'NotoSans' }} />
+            <CustomedChip label={chipLabel} sx={{ fontFamily: 'Noto Sans KR' }} />
           </Divider>
           <Spacer />
           <MainBadgeList size={30} />
