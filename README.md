@@ -1,8 +1,6 @@
 ## 환경 운동을 새로운 문화로 만드는 플랫폼
 
 # AIMECO, 환경(ECO)을 사랑(AIMER)하다.
-### 프로젝트 바로가기: [github.com/woog2roid/devel5pers-connecthon](https://github.com/woog2roid/devel5pers-connecthon)
-
 애메코는 환경보호를 하나의 문화로 만들기 위한 서비스입니다.
 
 > 팀원 다섯 명 모두 살아온 환경이 달라 대부분의 문제에 대한 공감도가 상이하였지만, '환경 문제'에 대한 인식은 모두 같았습니다. 날이 갈수록 심해지는 지구온난화와 이에 따른 이상기후는 이제 모두의 피부에 직접 와닿을 만큼 심각해졌습니다. 플랫폼 서비스를 통해 환경문제에 관해 많은 사람들의 관심을 끌고, 재미있게 환경을 보호하는 문화를 만드는 저희의 목표입니다.
@@ -10,6 +8,17 @@
 서비스 QR 코드 (모바일 환경에 최적화 되어있습니다.)
 
 - <img src="https://raw.githubusercontent.com/woog2roid/devel5pers-connecthon/main/docs/QRcode.png" alt="QR코드" style="width: 200px;"/>
+- supabase나 배포 서비스의 문제로 접속이 어려울 수도 있습니다.
+
+## 팀 구성 소개
+__팀 리더__
+- [우귀정](https://github.com/woog2roid): 개발/ 기획
+
+__팀원__
+- [김대현](https://github.com/dqgthb): 기획
+- [장창서](https://github.com/BeLeap): 개발
+- [조혜진](https://github.com/HyezNee): 개발
+- [강은비](https://github.com/eunnbi): 개발
 
 ## 목차
 
@@ -32,7 +41,7 @@
 배지 시스템을 도입하여 사람들로 하여금 쉬운 습관들부터 환경 관련 행사 참여까지 유도하며, 또한 활동을 통해 얻은 배지를 SNS를 통해 공유할 수 있습니다. 서로간의 선의의 경쟁심을 부추기며 환경 운동에 재미와 성취감을 느낄 수 있을 것입니다.
 
 ## AIMECO의 구체적인 기능 소개
-![Alt Text](https://github.com/woog2roid/devel5pers-connecthon/blob/main/docs/app.gif)
+![AIMECO](https://github.com/woog2roid/devel5pers-connecthon/blob/main/docs/app.gif)
 
 ### 배지 / 일일 활동 스트릭
 마이페이지에 보여지는 주요 컨텐츠들이며, SNS 공유될 내용들입니다. 
